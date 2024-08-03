@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.transition-width {
+    transition: width 0.3s;
+  }
