@@ -23,6 +23,7 @@ function App() {
 
   return (
     <Router>
+        
       <div className="flex overflow-hidden">
         <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
         <div className={`flex flex-col flex-1 transition-all duration-300 ${isSidebarOpen ? 'ml-52' : 'ml-16'}`}>

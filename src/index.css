@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* sidenav open close time */
 .transition-width {
     transition: width 0.3s;
   }
