@@ -1,14 +1,36 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { HomeIcon, ShoppingBagIcon, ArchiveBoxIcon, CreditCardIcon, DocumentChartBarIcon, Cog8ToothIcon, UserCircleIcon, PhoneIcon, ClockIcon } from '@heroicons/react/24/outline';
-
+import {
+  HomeIcon,
+  ShoppingBagIcon,
+  ArchiveBoxIcon,
+  CreditCardIcon,
+  DocumentChartBarIcon,
+  Cog8ToothIcon,
+  UserCircleIcon,
+  PhoneIcon,
+  ClockIcon,
+} from '@heroicons/react/24/outline';
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const [isContactsOpen, setIsContactsOpen] = useState(false);
+  const [isExpensesOpen, setIsExpensesOpen] = useState(false);
+  const [isPurchaseOpen, setIsPurchaseOpen] = useState(false);
+  const [isStockOpen, setIsStockOpen] = useState(false);
 
   const toggleContacts = () => {
     setIsContactsOpen(!isContactsOpen);
   };
+  const toggleStock = () => {
+    setIsStockOpen(!isStockOpen);
+  };
+  const toggleExpenses = () => {
+    setIsExpensesOpen(!isExpensesOpen);
+  };
+  const togglePurchase = () => {
+    setIsPurchaseOpen(!isPurchaseOpen);
+  };
+
   return (
     <aside className={`fixed top-0 left-0 h-full bg-blue-800 text-white transition-all duration-300 transform ${isOpen ? 'w-52' : 'w-16'} overflow-hidden`}>
       <nav className="flex flex-col items-center p-4">
@@ -26,9 +48,11 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
               <HomeIcon className="h-6 w-6" />
             )}
           </Link>
-          <Link
-            to="/purchase"
-            className={`flex items-center py-2 ${isOpen ? 'justify-start' : 'justify-center'} w-full`}
+
+     
+         <div
+            className={`flex items-center py-2 ${isOpen ? 'justify-start' : 'justify-center'} w-full cursor-pointer`}
+            onClick={togglePurchase}
           >
             {isOpen ? (
               <>
@@ -38,10 +62,44 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             ) : (
               <ShoppingBagIcon className="h-6 w-6" />
             )}
-          </Link>
-          <Link
-            to="/stock"
-            className={`flex items-center py-2 ${isOpen ? 'justify-start' : 'justify-center'} w-full`}
+            {isOpen && (
+              <svg
+                className="h-4 w-4 ml-auto transform rotate-90"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            )}
+          </div>
+
+          {isPurchaseOpen && (
+            <ul className="flex flex-col mt-2 w-full">
+              <li className={`flex items-center  px-4 ${isOpen ? 'justify-start' : 'justify-center'} w-full`}>
+                <Link to="/purchase" className="flex items-center w-full">
+                  <span className="ml-4">New Purchases</span>
+                </Link>
+              </li>
+              <li className={`flex items-center  px-4 ${isOpen ? 'justify-start' : 'justify-center'} w-full`}>
+                <Link to="/purchase" className="flex items-center w-full">
+                  <span className="ml-4">Purchases List
+                  </span>
+                </Link>
+              </li>
+            </ul>
+          )}
+
+{/*  */}
+
+<div
+            className={`flex items-center py-2 ${isOpen ? 'justify-start' : 'justify-center'} w-full cursor-pointer`}
+            onClick={toggleStock}
           >
             {isOpen ? (
               <>
@@ -51,10 +109,53 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             ) : (
               <ArchiveBoxIcon className="h-6 w-6" />
             )}
-          </Link>
-          <Link
-            to="/expenses"
-            className={`flex items-center py-2 ${isOpen ? 'justify-start' : 'justify-center'} w-full`}
+            {isOpen && (
+              <svg
+                className="h-4 w-4 ml-auto transform rotate-90"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            )}
+          </div>
+
+          {isStockOpen && (
+            <ul className="flex flex-col mt-2 w-full">
+              <li className={`flex items-center  px-4 ${isOpen ? 'justify-start' : 'justify-center'} w-full`}>
+                <Link to="/stock" className="flex items-center w-full">
+                  <span className="ml-4">Categories</span>
+                </Link>
+              </li>
+              <li className={`flex items-center  px-4 ${isOpen ? 'justify-start' : 'justify-center'} w-full`}>
+                <Link to="/contacts" className="flex items-center w-full">
+                  <span className="ml-4">Product list
+                  </span>
+                </Link>
+              </li>
+              <li className={`flex items-center  px-4 ${isOpen ? 'justify-start' : 'justify-center'} w-full`}>
+                <Link to="/contacts" className="flex items-center w-full">
+                  <span className="ml-4">Stock Report
+                  </span>
+                </Link>
+              </li>
+            </ul>
+          )}
+
+
+
+         
+
+          {/* expenses starts */}
+          <div
+            className={`flex items-center py-2 ${isOpen ? 'justify-start' : 'justify-center'} w-full cursor-pointer`}
+            onClick={toggleExpenses}
           >
             {isOpen ? (
               <>
@@ -64,7 +165,45 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             ) : (
               <CreditCardIcon className="h-6 w-6" />
             )}
-          </Link>
+            {isOpen && (
+              <svg
+                className="h-4 w-4 ml-auto transform rotate-90"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            )}
+          </div>
+
+          {isExpensesOpen && (
+            <ul className="flex flex-col mt-2 w-full">
+              <li className={`flex items-center  px-4 ${isOpen ? 'justify-start' : 'justify-center'} w-full`}>
+                <Link to="/contacts" className="flex items-center w-full">
+                  <span className="ml-4">Expenses list</span>
+                </Link>
+              </li>
+              <li className={`flex items-center  px-4 ${isOpen ? 'justify-start' : 'justify-center'} w-full`}>
+                <Link to="/contacts" className="flex items-center w-full">
+                  <span className="ml-4">Category list
+                  </span>
+                </Link>
+              </li>
+            </ul>
+          )}
+          {/* expenses ended */}
+
+
+
+
+
+
           <Link
             to="/total-report"
             className={`flex items-center py-2 ${isOpen ? 'justify-start' : 'justify-center'} w-full`}
@@ -105,9 +244,10 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             )}
           </Link>
 
-          <Link
-            to="/contacts"
-            className={`flex items-center py-2 ${isOpen ? 'justify-start' : 'justify-center'} w-full`}
+          {/* Contacts Dropdown */}
+          <div
+            className={`flex items-center py-2 ${isOpen ? 'justify-start' : 'justify-center'} w-full cursor-pointer`}
+            onClick={toggleContacts}
           >
             {isOpen ? (
               <>
@@ -117,9 +257,39 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             ) : (
               <PhoneIcon className="h-6 w-6" />
             )}
-          </Link>
+            {isOpen && (
+              <svg
+                className="h-4 w-4 ml-auto transform rotate-90"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            )}
+          </div>
 
+          {isContactsOpen && (
+            <ul className="flex flex-col mt-2 w-full">
+              <li className={`flex items-center  px-4 ${isOpen ? 'justify-start' : 'justify-center'} w-full`}>
+                <Link to="/contacts" className="flex items-center w-full">
+                  <span className="ml-4">Contacts</span>
+                </Link>
+              </li>
+              <li className={`flex items-center  px-4 ${isOpen ? 'justify-start' : 'justify-center'} w-full`}>
+                <Link to="/contacts" className="flex items-center w-full">
+                  <span className="ml-4">Contacts</span>
+                </Link>
+              </li>
+            </ul>
+          )}
 
+          {/* End of Contacts Dropdown */}
 
           <Link
             to="/attendance"
@@ -141,7 +311,4 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 };
 
 export default Sidebar;
-
-
-
 
