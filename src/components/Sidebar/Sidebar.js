@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HomeIcon, ShoppingBagIcon, ArchiveBoxIcon, CreditCardIcon, DocumentChartBarIcon, Cog8ToothIcon, UserCircleIcon, PhoneIcon, ClockIcon } from '@heroicons/react/24/outline';
 
+
 const Sidebar = ({ isOpen, toggleSidebar }) => {
+  const [isContactsOpen, setIsContactsOpen] = useState(false);
+
+  const toggleContacts = () => {
+    setIsContactsOpen(!isContactsOpen);
+  };
   return (
     <aside className={`fixed top-0 left-0 h-full bg-blue-800 text-white transition-all duration-300 transform ${isOpen ? 'w-52' : 'w-16'} overflow-hidden`}>
       <nav className="flex flex-col items-center p-4">
@@ -98,6 +104,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
               <UserCircleIcon className="h-6 w-6" />
             )}
           </Link>
+
           <Link
             to="/contacts"
             className={`flex items-center py-2 ${isOpen ? 'justify-start' : 'justify-center'} w-full`}
@@ -111,6 +118,9 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
               <PhoneIcon className="h-6 w-6" />
             )}
           </Link>
+
+
+
           <Link
             to="/attendance"
             className={`flex items-center py-2 ${isOpen ? 'justify-start' : 'justify-center'} w-full`}
@@ -131,3 +141,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 };
 
 export default Sidebar;
+
+
+
+

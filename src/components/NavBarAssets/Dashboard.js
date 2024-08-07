@@ -1,9 +1,7 @@
-// Dashboard.js
 import { faFile } from "@fortawesome/free-regular-svg-icons";
 import {
   faBoxOpen,
   faBriefcase,
-  faCartFlatbedSuitcase,
   faCartShopping,
   faMoneyCheckDollar,
   faStore,
@@ -12,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import BarChart from "../BarChart/BarChart";
 
 const Dashboard = () => {
   return (
@@ -107,6 +106,8 @@ const Dashboard = () => {
           
         </div>
       </div>
+
+      <BarChart />
     </div>
   );
 };
