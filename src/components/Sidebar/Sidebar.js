@@ -82,12 +82,12 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           {isPurchaseOpen && (
             <ul className="flex flex-col mt-2 w-full">
               <li className={`flex items-center  px-4 ${isOpen ? 'justify-start' : 'justify-center'} w-full`}>
-                <Link to="/purchase" className="flex items-center w-full">
+                <Link to="/new-purchase" className="flex items-center w-full">
                   <span className="ml-4">New Purchases</span>
                 </Link>
               </li>
               <li className={`flex items-center  px-4 ${isOpen ? 'justify-start' : 'justify-center'} w-full`}>
-                <Link to="/purchase" className="flex items-center w-full">
+                <Link to="/purchase-list" className="flex items-center w-full">
                   <span className="ml-4">Purchases List
                   </span>
                 </Link>
