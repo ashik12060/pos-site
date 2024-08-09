@@ -269,8 +269,8 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                   isOpen ? "justify-start" : "justify-center"
                 } w-full`}
               >
-                <Link to="/contacts" className="flex items-center w-full">
-                  <span className="ml-4">Contacts</span>
+                <Link to="/add-customer" className="flex items-center w-full">
+                  <span className="ml-4">Add Customer</span>
                 </Link>
               </li>
               <li
@@ -279,7 +279,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 } w-full`}
               >
                 <Link to="/contacts" className="flex items-center w-full">
-                  <span className="ml-4">Contacts</span>
+                  <span className="ml-4">Customer List</span>
                 </Link>
               </li>
             </ul>

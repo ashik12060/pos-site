@@ -14,12 +14,13 @@ import Stock from "./components/NavBarAssets/Stock/Stock";
 import TotalReport from "./components/NavBarAssets/TotalReport";
 import Setting from "./components/NavBarAssets/Setting";
 import UserAdmin from "./components/NavBarAssets/UserAdmin";
-import Contacts from "./components/NavBarAssets/Contacts";
+import Contacts from "./components/NavBarAssets/Contacts/AddCustomer";
 import Footer from "./components/Footer/Footer";
 import NewPurchase from "./components/NavBarAssets/NewPurchase";
 import PurchaseList from "./components/NavBarAssets/PurchaseList";
 import ExpenseList from "./components/NavBarAssets/Expenses/ExpenseList";
 import CategoryList from "./components/NavBarAssets/Expenses/CategoryList";
+import AddCustomer from "./components/NavBarAssets/Contacts/AddCustomer";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -51,7 +52,7 @@ function App() {
               <Route path="/total-report" element={<TotalReport />} />
               <Route path="/setting" element={<Setting />} />
               <Route path="/user-admin" element={<UserAdmin />} />
-              <Route path="/contacts" element={<Contacts />} />
+              <Route path="/add-customer" element={<AddCustomer />} />
               <Route path="/attendance" element={<Attendance />} />
             </Routes>
           </main>
