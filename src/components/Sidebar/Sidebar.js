@@ -176,7 +176,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                   isOpen ? "justify-start" : "justify-center"
                 } w-full`}
               >
-                <Link to="/contacts" className="flex items-center w-full">
+                <Link to="/category-list" className="flex items-center w-full">
                   <span className="ml-4">Category list</span>
                 </Link>
               </li>

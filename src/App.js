@@ -19,6 +19,7 @@ import Footer from "./components/Footer/Footer";
 import NewPurchase from "./components/NavBarAssets/NewPurchase";
 import PurchaseList from "./components/NavBarAssets/PurchaseList";
 import ExpenseList from "./components/NavBarAssets/Expenses/ExpenseList";
+import CategoryList from "./components/NavBarAssets/Expenses/CategoryList";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -46,6 +47,7 @@ function App() {
               <Route path="/purchase-list" element={<PurchaseList />} />
               <Route path="/stock" element={<Stock />} />
               <Route path="/expense-list" element={<ExpenseList />} />
+              <Route path="/category-list" element={<CategoryList />} />
               <Route path="/total-report" element={<TotalReport />} />
               <Route path="/setting" element={<Setting />} />
               <Route path="/user-admin" element={<UserAdmin />} />
