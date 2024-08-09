@@ -11,7 +11,7 @@ import Header from "./components/Header/Header";
 import Purchase from "./components/NavBarAssets/Purchase";
 import Attendance from "./components/NavBarAssets/Attendance";
 import Expenses from "./components/NavBarAssets/Expenses";
-import Stock from "./components/NavBarAssets/Stock";
+import Stock from "./components/NavBarAssets/Stock/Stock";
 import TotalReport from "./components/NavBarAssets/TotalReport";
 import Setting from "./components/NavBarAssets/Setting";
 import UserAdmin from "./components/NavBarAssets/UserAdmin";
