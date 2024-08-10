@@ -21,6 +21,7 @@ import PurchaseList from "./components/NavBarAssets/PurchaseList";
 import ExpenseList from "./components/NavBarAssets/Expenses/ExpenseList";
 import CategoryList from "./components/NavBarAssets/Expenses/CategoryList";
 import AddCustomer from "./components/NavBarAssets/Contacts/AddCustomer";
+import CustomersList from "./components/NavBarAssets/Contacts/CustomersList";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -53,6 +54,7 @@ function App() {
               <Route path="/setting" element={<Setting />} />
               <Route path="/user-admin" element={<UserAdmin />} />
               <Route path="/add-customer" element={<AddCustomer />} />
+              <Route path="/customers-list" element={<CustomersList />} />
               <Route path="/attendance" element={<Attendance />} />
             </Routes>
           </main>
