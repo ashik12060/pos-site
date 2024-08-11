@@ -16,6 +16,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   const [isContactsOpen, setIsContactsOpen] = useState(false);
   const [isExpensesOpen, setIsExpensesOpen] = useState(false);
   const [isPurchaseOpen, setIsPurchaseOpen] = useState(false);
+  const [isProfitLossOpen, setIsProfitLossOpen] = useState(false);
   const [isStockOpen, setIsStockOpen] = useState(false);
 
   const toggleContacts = () => {
@@ -29,6 +30,9 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   };
   const togglePurchase = () => {
     setIsPurchaseOpen(!isPurchaseOpen);
+  };
+  const toggleProfitLoss = () => {
+    setIsProfitLossOpen(!isProfitLossOpen);
   };
 
   return (
@@ -184,11 +188,14 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           )}
           {/* expenses ended */}
 
-          <Link
-            to="/total-report"
+          {/* report start */}
+
+         
+          <div
             className={`flex items-center py-2 ${
               isOpen ? "justify-start" : "justify-center"
-            } w-full`}
+            } w-full cursor-pointer`}
+            onClick={toggleProfitLoss}
           >
             {isOpen ? (
               <>
@@ -196,9 +203,50 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 <span>Total Report</span>
               </>
             ) : (
-              <DocumentChartBarIcon className="h-6 w-6" />
+              <DocumentChartBarIcon className="h-6 w-6 mr-4" />
             )}
-          </Link>
+            {isOpen && (
+              <svg
+                className="h-4 w-4 ml-auto transform rotate-90"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            )}
+          </div>
+
+          {isProfitLossOpen && (
+            <ul className="flex flex-col mt-2 w-full">
+              <li
+                className={`flex items-center  px-4 ${
+                  isOpen ? "justify-start" : "justify-center"
+                } w-full`}
+              >
+                <Link to="/profit-loss-report" className="flex items-center w-full">
+                  <span className="ml-4">Profit & Loss</span>
+                </Link>
+              </li>
+              <li
+                className={`flex items-center  px-4 ${
+                  isOpen ? "justify-start" : "justify-center"
+                } w-full`}
+              >
+                <Link to="/sales-report" className="flex items-center w-full">
+                  <span className="ml-4">Sales Report</span>
+                </Link>
+              </li>
+            </ul>
+          )}
+          {/* report end */}
+
+          
           <Link
             to="/setting"
             className={`flex items-center py-2 ${
