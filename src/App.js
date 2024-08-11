@@ -24,6 +24,7 @@ import AddCustomer from "./components/NavBarAssets/Contacts/AddCustomer";
 import CustomersList from "./components/NavBarAssets/Contacts/CustomersList";
 import ProfitLossReport from "./components/NavBarAssets/Stock/TotalReport/ProfitLossReport";
 import SalesReport from "./components/NavBarAssets/Stock/TotalReport/SalesReport";
+import Store from "./components/NavBarAssets/Settings/Store";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -59,6 +60,7 @@ function App() {
               <Route path="/customers-list" element={<CustomersList />} />
               <Route path="/profit-loss-report" element={<ProfitLossReport />} />
               <Route path="/sales-report"element={<SalesReport />} />
+              <Route path="/store"element={<Store />} />
               <Route path="/attendance" element={<Attendance />} />
             </Routes>
           </main>

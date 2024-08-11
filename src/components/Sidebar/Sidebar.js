@@ -17,6 +17,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   const [isExpensesOpen, setIsExpensesOpen] = useState(false);
   const [isPurchaseOpen, setIsPurchaseOpen] = useState(false);
   const [isProfitLossOpen, setIsProfitLossOpen] = useState(false);
+  const [isSettingOpen, setIsSettingOpen] = useState(false);
   const [isStockOpen, setIsStockOpen] = useState(false);
 
   const toggleContacts = () => {
@@ -33,6 +34,9 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   };
   const toggleProfitLoss = () => {
     setIsProfitLossOpen(!isProfitLossOpen);
+  };
+  const toggleSetting = () => {
+    setIsSettingOpen(!isSettingOpen);
   };
 
   return (
@@ -246,22 +250,67 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           )}
           {/* report end */}
 
-          
-          <Link
-            to="/setting"
+          {/* settings start */}
+
+          {/* report start */}
+
+         
+          <div
             className={`flex items-center py-2 ${
               isOpen ? "justify-start" : "justify-center"
-            } w-full`}
+            } w-full cursor-pointer`}
+            onClick={toggleSetting}
           >
             {isOpen ? (
               <>
-                <Cog8ToothIcon className="h-6 w-6 mr-4" />
-                <span>Setting</span>
+                 <Cog8ToothIcon className="h-6 w-6 mr-4" />
+                <span>Settings</span>
               </>
             ) : (
-              <Cog8ToothIcon className="h-6 w-6" />
+              <Cog8ToothIcon className="h-6 w-6 mr-4" />
             )}
-          </Link>
+            {isOpen && (
+              <svg
+                className="h-4 w-4 ml-auto transform rotate-90"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            )}
+          </div>
+
+          {isSettingOpen && (
+            <ul className="flex flex-col mt-2 w-full">
+              <li
+                className={`flex items-center  px-4 ${
+                  isOpen ? "justify-start" : "justify-center"
+                } w-full`}
+              >
+                <Link to="/store" className="flex items-center w-full">
+                  <span className="ml-4">Store</span>
+                </Link>
+              </li>
+              <li
+                className={`flex items-center  px-4 ${
+                  isOpen ? "justify-start" : "justify-center"
+                } w-full`}
+              >
+                <Link to="/sales-report" className="flex items-center w-full">
+                  <span className="ml-4">Sales Report</span>
+                </Link>
+              </li>
+            </ul>
+          )}
+          {/* report end */}
+          {/* settings end */}
+          
           <Link
             to="/user-admin"
             className={`flex items-center py-2 ${
