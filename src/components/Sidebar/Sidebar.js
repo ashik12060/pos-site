@@ -11,6 +11,8 @@ import {
   PhoneIcon,
   ClockIcon,
 } from "@heroicons/react/24/outline";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHourglass } from "@fortawesome/free-regular-svg-icons";
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const [isContactsOpen, setIsContactsOpen] = useState(false);
@@ -119,22 +121,21 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
           {/*  */}
 
-          
           <Link
             to="/stock"
-            className={`flex items-center py-2 ${isOpen ? 'justify-start' : 'justify-center'} w-full`}
+            className={`flex items-center py-2 ${
+              isOpen ? "justify-start" : "justify-center"
+            } w-full`}
           >
             {isOpen ? (
               <>
-               <CreditCardIcon className="h-6 w-6 mr-4" />
+                <FontAwesomeIcon icon={faHourglass} className="h-6 w-6 mr-4" />
                 <span>Stock</span>
               </>
             ) : (
-              <CreditCardIcon className="h-6 w-6 mr-4" />
+              <FontAwesomeIcon icon={faHourglass} className="h-6 w-6 mr-4" />
             )}
           </Link>
-
-          
 
           {/* expenses starts */}
           <div
@@ -194,7 +195,6 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
           {/* report start */}
 
-         
           <div
             className={`flex items-center py-2 ${
               isOpen ? "justify-start" : "justify-center"
@@ -233,7 +233,10 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                   isOpen ? "justify-start" : "justify-center"
                 } w-full`}
               >
-                <Link to="/profit-loss-report" className="flex items-center w-full">
+                <Link
+                  to="/profit-loss-report"
+                  className="flex items-center w-full"
+                >
                   <span className="ml-4">Profit & Loss</span>
                 </Link>
               </li>
@@ -250,67 +253,6 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           )}
           {/* report end */}
 
-          {/* settings start */}
-
-          {/* report start */}
-
-         
-          <div
-            className={`flex items-center py-2 ${
-              isOpen ? "justify-start" : "justify-center"
-            } w-full cursor-pointer`}
-            onClick={toggleSetting}
-          >
-            {isOpen ? (
-              <>
-                 <Cog8ToothIcon className="h-6 w-6 mr-4" />
-                <span>Settings</span>
-              </>
-            ) : (
-              <Cog8ToothIcon className="h-6 w-6 mr-4" />
-            )}
-            {isOpen && (
-              <svg
-                className="h-4 w-4 ml-auto transform rotate-90"
-                viewBox="0 0 20 20"
-                fill="none"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            )}
-          </div>
-
-          {isSettingOpen && (
-            <ul className="flex flex-col mt-2 w-full">
-              <li
-                className={`flex items-center  px-4 ${
-                  isOpen ? "justify-start" : "justify-center"
-                } w-full`}
-              >
-                <Link to="/store" className="flex items-center w-full">
-                  <span className="ml-4">Store</span>
-                </Link>
-              </li>
-              <li
-                className={`flex items-center  px-4 ${
-                  isOpen ? "justify-start" : "justify-center"
-                } w-full`}
-              >
-                <Link to="/sales-report" className="flex items-center w-full">
-                  <span className="ml-4">Sales Report</span>
-                </Link>
-              </li>
-            </ul>
-          )}
-          {/* report end */}
-          {/* settings end */}
-          
           <Link
             to="/user-admin"
             className={`flex items-center py-2 ${
@@ -399,6 +341,66 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
               <ClockIcon className="h-6 w-6" />
             )}
           </Link>
+
+          {/* Settings start */}
+          <div
+            className={`flex items-center py-2 ${
+              isOpen ? "justify-start" : "justify-center"
+            } w-full cursor-pointer`}
+            onClick={toggleSetting}
+          >
+            {isOpen ? (
+              <>
+                <Cog8ToothIcon className="h-6 w-6 mr-4" />
+                <span>Settings</span>
+              </>
+            ) : (
+              <Cog8ToothIcon className="h-6 w-6 mr-4" />
+            )}
+            {isOpen && (
+              <svg
+                className="h-4 w-4 ml-auto transform rotate-90"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            )}
+          </div>
+
+          {isSettingOpen && (
+            <ul className="flex flex-col mt-2 w-full">
+              <li
+                className={`flex items-center  px-4 ${
+                  isOpen ? "justify-start" : "justify-center"
+                } w-full`}
+              >
+                <Link to="/store" className="flex items-center w-full">
+                  <span className="ml-4">Store</span>
+                </Link>
+              </li>
+              <li
+                className={`flex items-center  px-4 ${
+                  isOpen ? "justify-start" : "justify-center"
+                } w-full`}
+              >
+                <Link
+                  to="/change-password"
+                  className="flex items-center w-full"
+                >
+                  <span className="ml-4">Change Password</span>
+                </Link>
+              </li>
+            </ul>
+          )}
+
+          {/* settings end */}
         </div>
       </nav>
     </aside>

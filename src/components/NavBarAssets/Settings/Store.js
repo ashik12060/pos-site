@@ -338,7 +338,226 @@ function SystemContent() {
 }
 
 function SalesContent() {
-  return <div>Sales Content</div>;
+  return <div className="container mx-auto p-4">
+  <div className="bg-white rounded-lg shadow-md p-6">
+    <h2 className="text-xl font-bold mb-4">Invoice Settings</h2>
+
+    <div className="mb-4">
+      <label htmlFor="defaultSalesDiscount" className="block text-gray-700 font-bold mb-2">
+        Default Sales Discount (%)
+      </label>
+      <input
+        type="number"
+        id="defaultSalesDiscount"
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        // value={defaultSalesDiscount}
+        // onChange={(e) => setDefaultSalesDiscount(e.target.value)}
+      />
+    </div>
+
+    <div className="mb-4">
+      <div className="flex items-center">
+        <input
+          type="checkbox"
+          id="showPaidAmountAndChangeReturn"
+          className="form-checkbox h-5 w-5 text-gray-600"
+        //   checked={showPaidAmountAndChangeReturn}
+        //   onChange={() => setShowPaidAmountAndChangeReturn(!showPaidAmountAndChangeReturn)}
+        />
+        <label
+          htmlFor="showPaidAmountAndChangeReturn"
+          className="ml-2 text-gray-700"
+        >
+          Show Paid Amount and Change Return (in POS)
+        </label>
+      </div>
+    </div>
+
+    <div className="mb-4">
+      <label
+        htmlFor="salesInvoiceFormats"
+        className="block text-gray-700 font-bold mb-2"
+      >
+        Sales Invoice Formats*
+      </label>
+      <select
+        id="salesInvoiceFormats"
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        // value={salesInvoiceFormats}
+        // onChange={(e) => setSalesInvoiceFormats(e.target.value)}
+      >
+        <option value="Default">Default</option>
+        {/* Add more options here */}
+      </select>
+    </div>
+
+    <div className="mb-4">
+      <label
+        htmlFor="posInvoiceFormats"
+        className="block text-gray-700 font-bold mb-2"
+      >
+        POS Invoice Formats*
+      </label>
+      <select
+        id="posInvoiceFormats"
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        // value={posInvoiceFormats}
+        // onChange={(e) => setPosInvoiceFormats(e.target.value)}
+      >
+        <option value="Default">Default</option>
+        {/* Add more options here */}
+      </select>
+    </div>
+
+    <div className="mb-4">
+      <div className="flex items-center">
+        <input
+          type="checkbox"
+          id="showMRPColumn"
+          className="form-checkbox h-5 w-5 text-gray-600"
+        //   checked={showMRPColumn}
+        //   onChange={() => setShowMRPColumn(!showMRPColumn)}
+        />
+        <label htmlFor="showMRPColumn" className="ml-2 text-gray-700">
+          Show MRP Column on POS Invoice
+        </label>
+      </div>
+    </div>
+
+    <div className="mb-4">
+      <div className="flex items-center">
+        <input
+          type="checkbox"
+          id="showPreviousBalance"
+          className="form-checkbox h-5 w-5 text-gray-600"
+        //   checked={showPreviousBalance}
+        //   onChange={() => setShowPreviousBalance(!showPreviousBalance)}
+        />
+        <label
+          htmlFor="showPreviousBalance"
+          className="ml-2 text-gray-700"
+        >
+          Show Previous Balance on Invoice
+        </label>
+      </div>
+    </div>
+
+    <div className="mb-4">
+      <label
+        htmlFor="numberToWordsFormat"
+        className="block text-gray-700 font-bold mb-2"
+      >
+        Number to Words Format*
+      </label>
+      <select
+        id="numberToWordsFormat"
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        // value={numberToWordsFormat}
+        // onChange={(e) => setNumberToWordsFormat(e.target.value)}
+      >
+        <option value="Default">Default</option>
+        {/* Add more options here */}
+      </select>
+    </div>
+
+    <div className="mb-4">
+      <label
+        htmlFor="salesInvoiceFooterText"
+        className="block text-gray-700 font-bold mb-2"
+      >
+        Sales Invoice Footer Text
+      </label>
+      <textarea
+        id="salesInvoiceFooterText"
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        // value={salesInvoiceFooterText}
+        // onChange={(e) => setSalesInvoiceFooterText(e.target.value)}
+      />
+    </div>
+
+    <div className="mb-4">
+      <label
+        htmlFor="invoiceTermsAndConditions"
+        className="block text-gray-700 font-bold mb-2"
+      >
+        Invoice Terms and Conditions
+      </label>
+      <div className="flex items-center">
+        <div className="mr-4">
+          <input
+            type="radio"
+            id="showOnInvoice"
+            className="form-radio h-5 w-5 text-gray-600"
+            // checked={showOnInvoice}
+            // onChange={() => setShowOnInvoice(true)}
+          />
+          <label htmlFor="showOnInvoice" className="ml-2 text-gray-700">
+            Show on Invoice
+          </label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="hideOnInvoice"
+            className="form-radio h-5 w-5 text-gray-600"
+            // checked={hideOnInvoice}
+            // onChange={() => setHideOnInvoice(true)}
+          />
+          <label htmlFor="hideOnInvoice" className="ml-2 text-gray-700">
+            Hide on Invoice
+          </label>
+        </div>
+      </div>
+      <div className="flex items-center mt-2">
+        <div className="mr-4">
+          <input
+            type="radio"
+            id="showOnPOSInvoice"
+            className="form-radio h-5 w-5 text-gray-600"
+            // checked={showOnPOSInvoice}
+            // onChange={() => setShowOnPOSInvoice(true)}
+          />
+          <label htmlFor="showOnPOSInvoice" className="ml-2 text-gray-700">
+            Show on POS Invoice
+          </label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="hideOnPOSInvoice"
+            className="form-radio h-5 w-5 text-gray-600"
+            // checked={hideOnPOSInvoice}
+            // onChange={() => setHideOnPOSInvoice(true)}
+          />
+          <label htmlFor="hideOnPOSInvoice" className="ml-2 text-gray-700">
+            Hide on POS Invoice
+          </label>
+        </div>
+      </div>
+      <textarea
+        id="invoiceTermsAndConditions"
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-2"
+        // value={invoiceTermsAndConditions}
+        // onChange={(e) => setInvoiceTermsAndConditions(e.target.value)}
+      />
+    </div>
+
+    <div className="flex justify-end">
+      <button
+        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        type="button"
+      >
+        Update
+      </button>
+      <button
+        className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-4"
+        type="button"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</div>
 }
 
 function PrefixesContent() {
