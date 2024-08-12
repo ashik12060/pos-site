@@ -397,6 +397,18 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                   <span className="ml-4">Change Password</span>
                 </Link>
               </li>
+              <li
+                className={`flex items-center  px-4 ${
+                  isOpen ? "justify-start" : "justify-center"
+                } w-full`}
+              >
+                <Link
+                  to="/smtp"
+                  className="flex items-center w-full"
+                >
+                  <span className="ml-4">SMTP</span>
+                </Link>
+              </li>
             </ul>
           )}
 
