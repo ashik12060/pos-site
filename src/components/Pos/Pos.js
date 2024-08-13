@@ -44,16 +44,16 @@ const Pos = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-100">
+    <div className="min-h-screen flex flex-col ">
       <header className="bg-blue-800 text-white p-4 flex justify-between items-center">
         <div className="text-2xl font-bold">Cash Point</div>
         <nav className="flex space-x-4">
           <Link to="/sales-list" className="hover:underline">
             Sales List
           </Link>
-          <a href="#" className="hover:underline">
+          <Link to="/customers-list" className="hover:underline">
             Customers List
-          </a>
+          </Link>
           <a href="#" className="hover:underline">
             Items List
           </a>
@@ -73,7 +73,7 @@ const Pos = () => {
         </div>
       </header>
 
-      <main className="p-4 flex-grow space-y-4">
+      <main className="p-4 flex-grow space-y-4 bg-white border-solid">
         <div className="flex space-x-4">
           <div className="flex space-x-2 items-center">
             <label htmlFor="branch" className="mr-2">
@@ -145,9 +145,32 @@ const Pos = () => {
             <div className="text-center text-red-600">Qty: 10</div>
           </div>
         </div>
+
+        <footer className="flex justify-between items-center p-4 bg-gray-100 border-t border-gray-300">
+        <div className="flex items-center space-x-2">
+          <input type="checkbox" id="send-message" className="form-checkbox" />
+          <label htmlFor="send-message" className="text-sm">
+            Send Message to Customer
+          </label>
+        </div>
+        <div className="flex space-x-4">
+          <button className="bg-pink-500 text-white px-4 py-2 rounded">
+            Hold
+          </button>
+          <button className="bg-blue-500 text-white px-4 py-2 rounded">
+            Multiple
+          </button>
+          <button className="bg-green-500 text-white px-4 py-2 rounded">
+            Cash
+          </button>
+          <button className="bg-purple-500 text-white px-4 py-2 rounded">
+            Pay All
+          </button>
+        </div>
+      </footer>
       </main>
 
-      <div className="p-4">
+      <div className="p-4 bg-white mt-4">
         <div className="flex space-x-2 mb-4">
           <select className="border border-gray-300 p-2 rounded">
             <option>-All Categories-</option>
@@ -197,28 +220,7 @@ const Pos = () => {
         </div>
       </div>
 
-      <footer className="flex justify-between items-center p-4 bg-gray-100 border-t border-gray-300">
-        <div className="flex items-center space-x-2">
-          <input type="checkbox" id="send-message" className="form-checkbox" />
-          <label htmlFor="send-message" className="text-sm">
-            Send Message to Customer
-          </label>
-        </div>
-        <div className="flex space-x-4">
-          <button className="bg-pink-500 text-white px-4 py-2 rounded">
-            Hold
-          </button>
-          <button className="bg-blue-500 text-white px-4 py-2 rounded">
-            Multiple
-          </button>
-          <button className="bg-green-500 text-white px-4 py-2 rounded">
-            Cash
-          </button>
-          <button className="bg-purple-500 text-white px-4 py-2 rounded">
-            Pay All
-          </button>
-        </div>
-      </footer>
+      
     </div>
   );
 };
