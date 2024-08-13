@@ -54,18 +54,10 @@ const Pos = () => {
           <Link to="/customers-list" className="hover:underline">
             Customers List
           </Link>
-          <a href="#" className="hover:underline">
-            Items List
-          </a>
-          <a href="#" className="hover:underline">
-            New Invoice
-          </a>
-          <a href="#" className="hover:underline">
-            Hold List
-          </a>
-          <a href="#" className="hover:underline">
+          
+          <Link to="/dashboard" className="hover:underline">
             Dashboard
-          </a>
+          </Link>
         </nav>
         <div className="flex items-center space-x-2">
           <span>Salman</span>

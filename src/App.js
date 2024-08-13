@@ -28,6 +28,7 @@ import SMTP from "./components/NavBarAssets/Settings/SMTP";
 import Pos from "./components/Pos/Pos";
 import SalesList from "./components/Pos/SalesList";
 import NotFound from "./components/NotFound/NotFound";
+import Test from "./components/Test";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -68,6 +69,7 @@ function App() {
               <Route path="/attendance" element={<Attendance />} />
               <Route path="/pos" element={<Pos />} />
               <Route path="/sales-list" element={<SalesList />} />
+              <Route path="/test" element={<Test />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
