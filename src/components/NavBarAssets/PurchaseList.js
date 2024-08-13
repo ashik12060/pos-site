@@ -45,7 +45,7 @@ const PurchaseList = () => {
               <th className="px-4 py-2 border">Reference No.</th>
               <th className="px-4 py-2 border">Supplier Name</th>
               <th className="px-4 py-2 border">Total</th>
-              <th className="px-4 py-2 border">Paid Payment</th>
+              <th className="px-4 py-2 border">Paid Amount</th>
               <th className="px-4 py-2 border">Payment Status</th>
               <th className="px-4 py-2 border">Created by</th>
               <th className="px-4 py-2 border">Action</th>
@@ -56,16 +56,30 @@ const PurchaseList = () => {
               <td className="px-4 py-2 border">15-07-2024</td>
               <td className="px-4 py-2 border">PU0004</td>
               <td className="px-4 py-2 border">Received</td>
+              <td className="px-4 py-2 border">FLSDHFoHFAFD</td>
               <td className="px-4 py-2 border">EZ tech</td>
-              <td className="px-4 py-2 border">1,200.00</td>
+              <td className="px-4 py-2 border">1200.00</td>
               <td className="px-4 py-2 border">0.00</td>
               <td className="px-4 py-2 border">Unpaid</td>
               <td className="px-4 py-2 border">Salman</td>
-              <td className="px-4 py-2 border">
+              {/* <td className="px-4 py-2 border">
                 <button className="bg-blue-500 text-white p-2 rounded shadow hover:bg-blue-700">
                   Action
                 </button>
-              </td>
+              </td> */}
+              <td className="px-4 py-2 border- border-gray-300 text-sm">
+                  <select                  
+                    className="bg-blue-500  text-white font-bold py-2 px-4 rounded"
+                    
+                    
+                  >
+                    <option className='' value=""  >Action</option>
+                    <option className='bg-white text-black p-4 my-2' value="view">View</option>
+                    <option className='bg-white text-black p-4 my-2' value="edit">Edit</option>
+                    <option className='bg-white text-black p-4 my-2' value="print">Print</option>
+                    <option className='bg-white text-black p-4' value="delete">Delete</option>
+                  </select>
+                </td>
             </tr>
           
           </tbody>
