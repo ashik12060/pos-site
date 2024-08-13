@@ -8,7 +8,6 @@ function SMTP() {
   const [smtpPassword, setSmtpPassword] = useState("");
 
   const handleUpdate = () => {
-    // Handle update logic here
     console.log("Updating SMTP settings...");
     console.log(
       `SMTP Status: ${smtpStatus}, SMTP Host: ${smtpHost}, SMTP Port: ${smtpPort}, SMTP User: ${smtpUser}, SMTP Password: ${smtpPassword}`

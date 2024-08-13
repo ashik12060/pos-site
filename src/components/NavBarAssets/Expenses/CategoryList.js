@@ -1,74 +1,3 @@
-// import React from 'react';
-
-// const categories = [
-//     { categoryName: 'Mele Tang Road', description: 'Lunch Cost', status: 'Active' },
-//     { categoryName: 'Ads', description: '', status: 'Active' },
-// ];
-
-// const CategoryList = () => {
-//     return (
-//         <div className="container mx-auto px-4 py-8">
-//             <div className="flex justify-between items-center mb-4">
-//                 <h1 className="text-xl font-bold">Expense Category List</h1>
-//                 <div className="px-4 py-2">
-//                     <button className="bg-green-500 text-white py-2 px-4 rounded mr-2">Copy</button>
-//                     <button className="bg-green-500 text-white py-2 px-4 rounded mr-2">Excel</button>
-//                     <button className="bg-green-500 text-white py-2 px-4 rounded mr-2">PDF</button>
-//                     <button className="bg-green-500 text-white py-2 px-4 rounded mr-2">Print</button>
-//                     <button className="bg-green-500 text-white py-2 px-4 rounded">CSV</button>
-//                 </div>
-//                 <button className="bg-blue-500 text-white py-2 px-4 rounded">+ New Category</button>
-//             </div>
-//             <div className="bg-white shadow rounded overflow-hidden">
-//                 <table className="min-w-full table-auto">
-//                     <thead className="bg-gray-100">
-//                         <tr>
-//                             <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
-//                                 <input type="checkbox" className="form-checkbox" />
-//                             </th>
-//                             <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Category Name</th>
-//                             <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Description</th>
-//                             <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Status</th>
-//                             <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Action</th>
-//                         </tr>
-//                     </thead>
-//                     <tbody>
-//                         {categories.map((category, index) => (
-//                             <tr key={index} className="border-b">
-//                                 <td className="px-4 py-2">
-//                                     <input type="checkbox" className="form-checkbox" />
-//                                 </td>
-//                                 <td className="px-4 py-2">{category.categoryName}</td>
-//                                 <td className="px-4 py-2">{category.description}</td>
-//                                 <td className="px-4 py-2">
-//                                     <span className="bg-green-200 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">
-//                                         {category.status}
-//                                     </span>
-//                                 </td>
-//                                 <td className="px-4 py-2">
-//                                     <button className="bg-blue-500 text-white py-1 px-2 rounded">Action</button>
-//                                 </td>
-//                             </tr>
-//                         ))}
-//                     </tbody>
-//                 </table>
-               
-//             </div>
-//             <div className="flex justify-between items-center mt-4">
-//                 <span>Showing 1 to {categories.length} of {categories.length} entries</span>
-//                 <div>
-//                     <button className="bg-gray-300 text-gray-700 py-1 px-3 rounded">Previous</button>
-//                     <span className="mx-2">1</span>
-//                     <button className="bg-gray-300 text-gray-700 py-1 px-3 rounded">Next</button>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// }
-
-// export default CategoryList;
-
-
 import React, { useState } from 'react';
 
 const categories = [
@@ -94,7 +23,6 @@ const CategoryList = () => {
 
     const handleDelete = () => {
         alert('Deleting selected items');
-        // Implement delete functionality
     };
 
     return (

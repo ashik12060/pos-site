@@ -3,13 +3,10 @@ import React from 'react';
 const PurchaseList = () => {
   return (
     <div className="container mx-auto p-4">
-      {/* Header Section */}
       <div className="mb-6">
         <h1 className="text-2xl font-bold">Purchase List</h1>
         <p className="text-gray-600">View/Search Purchase</p>
       </div>
-
-      {/* Statistics Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         <div className="bg-white p-4 rounded shadow">
           <p className="text-xl font-bold">4</p>
@@ -29,7 +26,6 @@ const PurchaseList = () => {
         </div>
       </div>
 
-      {/* Filter and Button Section */}
       <div className="flex flex-col md:flex-row md:justify-between items-center mb-6">
         <select className="mb-4 md:mb-0 md:w-1/3 p-2 border rounded">
           <option>-All Warehouses-</option>
@@ -38,8 +34,7 @@ const PurchaseList = () => {
           New Purchase
         </button>
       </div>
-
-      {/* Table Section */}
+      
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white">
           <thead>

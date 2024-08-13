@@ -7,8 +7,6 @@ function ChangePassword() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would handle the form submission
-    // and send the data to your backend
     console.log('Current Password:', currentPassword);
     console.log('New Password:', newPassword);
     console.log('Confirm Password:', confirmPassword);

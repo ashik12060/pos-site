@@ -16,7 +16,6 @@ const Stock = () => {
     { adjustmentDate: '26-05-2024', referenceNo: '12345678', createdBy: 'Salman', action: 'Action' },
     { adjustmentDate: '23-05-2024', referenceNo: '12345678', createdBy: 'Salman', action: 'Action' },
     { adjustmentDate: '22-05-2024', referenceNo: '12345678', createdBy: 'Salman', action: 'Action' },
-    // Add more entries here
   ];
 
   const filteredEntries = entries.filter((entry) =>

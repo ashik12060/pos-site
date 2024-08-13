@@ -59,7 +59,6 @@ const AddCustomer = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission here
     console.log({
       customerName,
       email,
@@ -220,7 +219,6 @@ const AddCustomer = () => {
               className="w-full max-w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200"
             >
               <option value="">Select</option>
-              {/* Add your country options here */}
             </select>
           </div>
           <div>
@@ -235,7 +233,6 @@ const AddCustomer = () => {
               className="w-full max-w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200"
             >
               <option value="">Select State</option>
-              {/* Add your state options here */}
             </select>
           </div>
         </div>
@@ -320,7 +317,6 @@ const AddCustomer = () => {
               className="w-full max-w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200"
             >
               <option value="">Select</option>
-              {/* Add your country options here */}
             </select>
           </div>
           <div>
@@ -335,7 +331,7 @@ const AddCustomer = () => {
               className="w-full max-w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200"
             >
               <option value="">Select State</option>
-              {/* Add your state options here */}
+             
             </select>
           </div>
         </div>

@@ -12,9 +12,7 @@ import Purchase from "./components/NavBarAssets/Purchase";
 import Attendance from "./components/NavBarAssets/Attendance";
 import Stock from "./components/NavBarAssets/Stock/Stock";
 import TotalReport from "./components/NavBarAssets/TotalReport";
-import Setting from "./components/NavBarAssets/Setting";
 import UserAdmin from "./components/NavBarAssets/UserAdmin";
-import Contacts from "./components/NavBarAssets/Contacts/AddCustomer";
 import Footer from "./components/Footer/Footer";
 import NewPurchase from "./components/NavBarAssets/NewPurchase";
 import PurchaseList from "./components/NavBarAssets/PurchaseList";
@@ -29,6 +27,7 @@ import ChangePassword from "./components/NavBarAssets/Settings/ChangePassword";
 import SMTP from "./components/NavBarAssets/Settings/SMTP";
 import Pos from "./components/Pos/Pos";
 import SalesList from "./components/Pos/SalesList";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -58,7 +57,6 @@ function App() {
               <Route path="/expense-list" element={<ExpenseList />} />
               <Route path="/category-list" element={<CategoryList />} />
               <Route path="/total-report" element={<TotalReport />} />
-              <Route path="/setting" element={<Setting />} />
               <Route path="/user-admin" element={<UserAdmin />} />
               <Route path="/add-customer" element={<AddCustomer />} />
               <Route path="/customers-list" element={<CustomersList />} />
@@ -70,6 +68,7 @@ function App() {
               <Route path="/attendance" element={<Attendance />} />
               <Route path="/pos" element={<Pos />} />
               <Route path="/sales-list" element={<SalesList />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
          

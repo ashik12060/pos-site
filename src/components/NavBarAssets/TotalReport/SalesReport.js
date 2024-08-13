@@ -18,10 +18,8 @@ function SalesReport() {
   };
 
   const handleSubmit = () => {
-    // Handle form submission here
   };
 
-  // Sample data for table rows
   const tableData = [
     {
       id: 1,
@@ -58,7 +56,7 @@ function SalesReport() {
     },
   ];
 
-  // Calculate the totals
+
   const totalBillAmt = tableData.reduce((sum, item) => sum + item.billAmt, 0);
   const totalReceive = tableData.reduce((sum, item) => sum + item.receive, 0);
   const totalTotal = tableData.reduce((sum, item) => sum + item.total, 0);

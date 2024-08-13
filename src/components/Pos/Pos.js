@@ -45,7 +45,6 @@ const Pos = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
-      {/* Header Section */}
       <header className="bg-blue-800 text-white p-4 flex justify-between items-center">
         <div className="text-2xl font-bold">Cash Point</div>
         <nav className="flex space-x-4">
@@ -74,9 +73,7 @@ const Pos = () => {
         </div>
       </header>
 
-      {/* Main Content Section */}
       <main className="p-4 flex-grow space-y-4">
-        {/* Customer and Item Information */}
         <div className="flex space-x-4">
           <div className="flex space-x-2 items-center">
             <label htmlFor="branch" className="mr-2">
@@ -113,7 +110,6 @@ const Pos = () => {
         </div>
         <div className="text-red-600">Previous Due: 0.00</div>
 
-        {/* Product Table */}
         <div className="border-solid border-2 border-gray-300">
           <table className="w-full">
             <thead>
@@ -128,7 +124,6 @@ const Pos = () => {
               </tr>
             </thead>
             <tbody>
-              {/* Dynamic Rows */}
               <tr>
                 <td className="border p-2">Item 1</td>
                 <td className="border p-2">10</td>
@@ -142,21 +137,17 @@ const Pos = () => {
           </table>
         </div>
 
-        {/* Product Grid */}
         <div className="flex flex-wrap gap-4">
-          {/* Dynamic Product Cards */}
           <div className="w-1/4 p-2 border border-gray-300 rounded">
             <img src={img} alt="Product" className="w-full h-24 object-cover" />
             <div className="text-center mt-2">Product Name</div>
             <div className="text-center text-green-600">100.00 - SR</div>
             <div className="text-center text-red-600">Qty: 10</div>
           </div>
-          {/* Repeat Product Card for more items */}
         </div>
       </main>
 
       <div className="p-4">
-        {/* Filter Options */}
         <div className="flex space-x-2 mb-4">
           <select className="border border-gray-300 p-2 rounded">
             <option>-All Categories-</option>
@@ -179,7 +170,6 @@ const Pos = () => {
           <button className="border border-gray-300 p-2 rounded">⟳</button>
         </div>
 
-        {/* Product Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           {products.map((product) => (
             <div
@@ -207,7 +197,6 @@ const Pos = () => {
         </div>
       </div>
 
-      {/* Footer Section */}
       <footer className="flex justify-between items-center p-4 bg-gray-100 border-t border-gray-300">
         <div className="flex items-center space-x-2">
           <input type="checkbox" id="send-message" className="form-checkbox" />

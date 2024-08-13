@@ -2,6 +2,7 @@ import React from 'react';
 import logo from "../../assets/logo.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser, faLanguage, faSquarePlus } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const Header = ({ toggleSidebar }) => {
   return (
@@ -12,7 +13,7 @@ const Header = ({ toggleSidebar }) => {
       </div>
       <div className="flex items-center space-x-6">
         <button className="px-3 py-1 rounded "><FontAwesomeIcon className='pe-1' icon={faLanguage} />English</button>
-        <button className=" px-3 py-1 rounded"><FontAwesomeIcon className='pe-1 ' icon={faSquarePlus} />POS</button>
+        <Link to='/pos' className=" px-3 py-1 rounded"><FontAwesomeIcon className='pe-1 ' icon={faSquarePlus} />POS</Link>
         <button className=" px-3 py-1 rounded"><FontAwesomeIcon className='pe-1 text-2xl' icon={faCircleUser} />Salman</button>
       </div>
     </header>

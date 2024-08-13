@@ -20,7 +20,7 @@ function SalesList() {
       paymentStatus: 'Paid',
       createdBy: 'Salman',
       action: 'Action',
-      dropdownOpen: false, // Added state for dropdown visibility
+      dropdownOpen: false, 
     },
     {
               salesDate: '03-08-2024',
