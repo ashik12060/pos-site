@@ -27,6 +27,8 @@ import SalesReport from "./components/NavBarAssets/TotalReport/SalesReport";
 import Store from "./components/NavBarAssets/Settings/Store";
 import ChangePassword from "./components/NavBarAssets/Settings/ChangePassword";
 import SMTP from "./components/NavBarAssets/Settings/SMTP";
+import Pos from "./components/Pos/Pos";
+import SalesList from "./components/Pos/SalesList";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -66,6 +68,8 @@ function App() {
               <Route path="/change-password"element={<ChangePassword />} />
               <Route path="/smtp"element={<SMTP />} />
               <Route path="/attendance" element={<Attendance />} />
+              <Route path="/pos" element={<Pos />} />
+              <Route path="/sales-list" element={<SalesList />} />
             </Routes>
           </main>
          
