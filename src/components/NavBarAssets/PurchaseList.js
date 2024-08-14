@@ -62,11 +62,7 @@ const PurchaseList = () => {
               <td className="px-4 py-2 border">0.00</td>
               <td className="px-4 py-2 border">Unpaid</td>
               <td className="px-4 py-2 border">Salman</td>
-              {/* <td className="px-4 py-2 border">
-                <button className="bg-blue-500 text-white p-2 rounded shadow hover:bg-blue-700">
-                  Action
-                </button>
-              </td> */}
+             
               <td className="px-4 py-2 border- border-gray-300 text-sm">
                   <select                  
                     className="bg-blue-500  text-white font-bold py-2 px-4 rounded"

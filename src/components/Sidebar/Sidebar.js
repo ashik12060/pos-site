@@ -12,15 +12,22 @@ import {
   ClockIcon,
 } from "@heroicons/react/24/outline";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHourglass } from "@fortawesome/free-regular-svg-icons";
+import { faHourglass, faMessage, faPaste, faSquarePlus } from "@fortawesome/free-regular-svg-icons";
+import { faList, faLock, faStore } from "@fortawesome/free-solid-svg-icons";
 
-const Sidebar = ({ isOpen, toggleSidebar }) => {
+const Sidebar = ({ isOpen, toggleSidebar, onHover }) => {
   const [isContactsOpen, setIsContactsOpen] = useState(false);
   const [isExpensesOpen, setIsExpensesOpen] = useState(false);
   const [isPurchaseOpen, setIsPurchaseOpen] = useState(false);
   const [isProfitLossOpen, setIsProfitLossOpen] = useState(false);
   const [isSettingOpen, setIsSettingOpen] = useState(false);
   const [isStockOpen, setIsStockOpen] = useState(false);
+  const [isGoalOpen, setIsGoalOpen] = useState(false);
+  const [hoverOpen, setHoverOpen] = useState(false);
+
+  const toggleGoal = () => {
+    setIsGoalOpen(!isGoalOpen);
+  };
 
   const toggleContacts = () => {
     setIsContactsOpen(!isContactsOpen);
@@ -41,21 +48,33 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     setIsSettingOpen(!isSettingOpen);
   };
 
+  const handleMouseEnter = () => {
+    setHoverOpen(true);
+    onHover(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHoverOpen(false);
+    onHover(false);
+  };
+
   return (
     <aside
-      className={`fixed top-0 left-0 h-full bg-blue-800 text-white transition-all duration-300 transform ${
-        isOpen ? "w-52" : "w-16"
-      } overflow-hidden`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={`fixed top-0 left-0 h-screen pb-96 bg-blue-800 text-white transition-all duration-300 transform ${
+        isOpen || hoverOpen ? "w-52" : "w-16"
+      }  overflow-auto scrollbar-hide`}
     >
-      <nav className="flex flex-col items-center p-4">
+      <nav className="flex flex-col items-center pb-96 p-4 text-sm">
         <div className="flex flex-col items-center mt-28">
           <Link
             to="/dashboard"
             className={`flex items-center py-2 ${
-              isOpen ? "justify-start" : "justify-center"
+              isOpen || hoverOpen ? "justify-start" : "justify-center"
             } w-full`}
           >
-            {isOpen ? (
+            {isOpen || hoverOpen ? (
               <>
                 <HomeIcon className="h-6 w-6 mr-4" />
                 <span>Dashboard</span>
@@ -66,20 +85,20 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           </Link>
 
           <div
-            className={`flex items-center py-2 ${
-              isOpen ? "justify-start" : "justify-center"
+            className={`flex items-center py-2  ${
+              isOpen || hoverOpen ? "justify-start" : "justify-center"
             } w-full cursor-pointer`}
             onClick={togglePurchase}
           >
-            {isOpen ? (
+            {isOpen || hoverOpen ? (
               <>
-                <ShoppingBagIcon className="h-6 w-6 mr-4" />
+                <ShoppingBagIcon className="h-6 w-6  mr-4" />
                 <span>Purchase</span>
               </>
             ) : (
               <ShoppingBagIcon className="h-6 w-6" />
             )}
-            {isOpen && (
+            {isOpen || hoverOpen && (
               <svg
                 className="h-4 w-4 ml-auto transform rotate-90"
                 viewBox="0 0 20 20"
@@ -97,54 +116,53 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           </div>
 
           {isPurchaseOpen && (
-            <ul className="flex flex-col mt-2 w-full">
+            <ul className="flex flex-col mt-2 w-full bg-gray-500">
               <li
                 className={`flex items-center  px-4 ${
-                  isOpen ? "justify-start" : "justify-center"
+                  isOpen || hoverOpen ? "justify-start" : "justify-center"
                 } w-full`}
               >
                 <Link to="/new-purchase" className="flex items-center w-full">
-                  <span className="ml-4">New Purchases</span>
+                  <span className=""><FontAwesomeIcon className="pe-2" icon={faSquarePlus} />New Purchases</span>
                 </Link>
               </li>
               <li
                 className={`flex items-center  px-4 ${
-                  isOpen ? "justify-start" : "justify-center"
+                  isOpen || hoverOpen ? "justify-start" : "justify-center"
                 } w-full`}
               >
                 <Link to="/purchase-list" className="flex items-center w-full">
-                  <span className="ml-4">Purchases List</span>
+                  <span className=""><FontAwesomeIcon className="pe-2" icon={faList} />Purchases List</span>
                 </Link>
               </li>
             </ul>
           )}
 
-          {/*  */}
-
+          {/* stock start */}
           <Link
             to="/stock"
-            className={`flex items-center py-2 ${
-              isOpen ? "justify-start" : "justify-center"
+            className={`flex items-center py-2  ${
+              isOpen || hoverOpen ? "justify-start" : "justify-center"
             } w-full`}
           >
-            {isOpen ? (
+            {isOpen || hoverOpen ? (
               <>
-                <FontAwesomeIcon icon={faHourglass} className="h-6 w-6 mr-4" />
+               <ArchiveBoxIcon className="h-6 w-6 mr-4" />
                 <span>Stock</span>
               </>
             ) : (
-              <FontAwesomeIcon icon={faHourglass} className="h-6 w-6 mr-4" />
+              <ArchiveBoxIcon className="h-6 w-6 " />
             )}
           </Link>
+          
 
-          {/* expenses starts */}
           <div
             className={`flex items-center py-2 ${
-              isOpen ? "justify-start" : "justify-center"
+              isOpen || hoverOpen ? "justify-start" : "justify-center"
             } w-full cursor-pointer`}
             onClick={toggleExpenses}
           >
-            {isOpen ? (
+            {isOpen || hoverOpen ? (
               <>
                 <CreditCardIcon className="h-6 w-6 mr-4" />
                 <span>Expenses</span>
@@ -152,7 +170,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             ) : (
               <CreditCardIcon className="h-6 w-6" />
             )}
-            {isOpen && (
+            {isOpen || hoverOpen && (
               <svg
                 className="h-4 w-4 ml-auto transform rotate-90"
                 viewBox="0 0 20 20"
@@ -170,46 +188,43 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           </div>
 
           {isExpensesOpen && (
-            <ul className="flex flex-col mt-2 w-full">
+            <ul className="flex flex-col mt-2 w-full bg-gray-500">
               <li
                 className={`flex items-center  px-4 ${
-                  isOpen ? "justify-start" : "justify-center"
+                  isOpen || hoverOpen ? "justify-start" : "justify-center"
                 } w-full`}
               >
                 <Link to="/expense-list" className="flex items-center w-full">
-                  <span className="ml-4">Expenses list</span>
+                  <span className=""><FontAwesomeIcon className="pe-2" icon={faList} />Expense List</span>
                 </Link>
               </li>
               <li
                 className={`flex items-center  px-4 ${
-                  isOpen ? "justify-start" : "justify-center"
+                  isOpen || hoverOpen ? "justify-start" : "justify-center"
                 } w-full`}
               >
                 <Link to="/category-list" className="flex items-center w-full">
-                  <span className="ml-4">Category list</span>
+                  <span className=""><FontAwesomeIcon className="pe-2" icon={faList} />Category List</span>
                 </Link>
               </li>
             </ul>
           )}
-          {/* expenses ended */}
-
-          {/* report start */}
 
           <div
             className={`flex items-center py-2 ${
-              isOpen ? "justify-start" : "justify-center"
+              isOpen || hoverOpen ? "justify-start" : "justify-center"
             } w-full cursor-pointer`}
             onClick={toggleProfitLoss}
           >
-            {isOpen ? (
+            {isOpen || hoverOpen ? (
               <>
                 <DocumentChartBarIcon className="h-6 w-6 mr-4" />
-                <span>Total Report</span>
+                <span>Reports</span>
               </>
             ) : (
-              <DocumentChartBarIcon className="h-6 w-6 mr-4" />
+              <DocumentChartBarIcon className="h-6 w-6" />
             )}
-            {isOpen && (
+            {isOpen || hoverOpen && (
               <svg
                 className="h-4 w-4 ml-auto transform rotate-90"
                 viewBox="0 0 20 20"
@@ -227,40 +242,36 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           </div>
 
           {isProfitLossOpen && (
-            <ul className="flex flex-col mt-2 w-full">
+            <ul className="flex flex-col mt-2 w-full bg-gray-500">
               <li
                 className={`flex items-center  px-4 ${
-                  isOpen ? "justify-start" : "justify-center"
+                  isOpen || hoverOpen ? "justify-start" : "justify-center"
                 } w-full`}
               >
-                <Link
-                  to="/profit-loss-report"
-                  className="flex items-center w-full"
-                >
-                  <span className="ml-4">Profit & Loss</span>
+                <Link to="/profit-loss-report" className="flex items-center w-full">
+                  <span className=""><FontAwesomeIcon className="pe-2" icon={faPaste} />Profit & Loss</span>
                 </Link>
               </li>
               <li
                 className={`flex items-center  px-4 ${
-                  isOpen ? "justify-start" : "justify-center"
+                  isOpen || hoverOpen ? "justify-start" : "justify-center"
                 } w-full`}
               >
                 <Link to="/sales-report" className="flex items-center w-full">
-                  <span className="ml-4">Sales Report</span>
+                  <span className=""><FontAwesomeIcon className="pe-2" icon={faPaste} />Sales Report</span>
                 </Link>
               </li>
             </ul>
           )}
-          {/* report end */}
 
-
+          {/* user/admin starts */}
           <Link
             to="/user-admin"
             className={`flex items-center py-2 ${
-              isOpen ? "justify-start" : "justify-center"
+              isOpen || hoverOpen ? "justify-start" : "justify-center"
             } w-full`}
           >
-            {isOpen ? (
+            {isOpen || hoverOpen ? (
               <>
                 <UserCircleIcon className="h-6 w-6 mr-4" />
                 <span>User/Admin</span>
@@ -269,15 +280,17 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
               <UserCircleIcon className="h-6 w-6" />
             )}
           </Link>
+          {/* user/admin ends */}
 
-          {/* Contacts Dropdown */}
-          <div
+          {/* contacts start */}
+          <Link
+            
             className={`flex items-center py-2 ${
-              isOpen ? "justify-start" : "justify-center"
-            } w-full cursor-pointer`}
+              isOpen || hoverOpen ? "justify-start" : "justify-center"
+            } w-full`}
             onClick={toggleContacts}
           >
-            {isOpen ? (
+            {isOpen || hoverOpen ? (
               <>
                 <PhoneIcon className="h-6 w-6 mr-4" />
                 <span>Contacts</span>
@@ -285,7 +298,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             ) : (
               <PhoneIcon className="h-6 w-6" />
             )}
-            {isOpen && (
+            {isOpen || hoverOpen && (
               <svg
                 className="h-4 w-4 ml-auto transform rotate-90"
                 viewBox="0 0 20 20"
@@ -300,65 +313,51 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 />
               </svg>
             )}
-          </div>
+          </Link>
 
           {isContactsOpen && (
-            <ul className="flex flex-col mt-2 w-full">
+            <ul className="flex flex-col mt-2 w-full bg-gray-500">
               <li
                 className={`flex items-center  px-4 ${
-                  isOpen ? "justify-start" : "justify-center"
+                  isOpen || hoverOpen ? "justify-start" : "justify-center"
                 } w-full`}
               >
                 <Link to="/add-customer" className="flex items-center w-full">
-                  <span className="ml-4">Add Customer</span>
+                  <span className=""><FontAwesomeIcon className="pe-2" icon={faSquarePlus} />Add Customer</span>
                 </Link>
               </li>
               <li
                 className={`flex items-center  px-4 ${
-                  isOpen ? "justify-start" : "justify-center"
+                  isOpen || hoverOpen ? "justify-start" : "justify-center"
                 } w-full`}
               >
                 <Link to="/customers-list" className="flex items-center w-full">
-                  <span className="ml-4">Customer List</span>
+                  <span className=""><FontAwesomeIcon className="pe-2" icon={faList} />Customers List</span>
                 </Link>
               </li>
+              
             </ul>
           )}
 
-          {/* End of Contacts Dropdown */}
+          {/* contacts end */}
 
-          <Link
-            to="/attendance"
-            className={`flex items-center py-2 ${
-              isOpen ? "justify-start" : "justify-center"
-            } w-full`}
-          >
-            {isOpen ? (
-              <>
-                <ClockIcon className="h-6 w-6 mr-4" />
-                <span>Attendance</span>
-              </>
-            ) : (
-              <ClockIcon className="h-6 w-6" />
-            )}
-          </Link>
 
-          {/* Settings start */}
+
           <div
             className={`flex items-center py-2 ${
-              isOpen ? "justify-start" : "justify-center"
+              isOpen || hoverOpen ? "justify-start" : "justify-center"
             } w-full cursor-pointer`}
             onClick={toggleSetting}
           >
-            {isOpen ? (
+            {isOpen || hoverOpen ? (
               <>
                 <Cog8ToothIcon className="h-6 w-6 mr-4" />
-                <span>Settings</span>
+                <span>Setting</span>
               </>
             ) : (
-              <Cog8ToothIcon className="h-6 w-6 mr-4" />
+              <Cog8ToothIcon className="h-6 w-6" />
             )}
-            {isOpen && (
+            {isOpen || hoverOpen && (
               <svg
                 className="h-4 w-4 ml-auto transform rotate-90"
                 viewBox="0 0 20 20"
@@ -376,44 +375,38 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           </div>
 
           {isSettingOpen && (
-            <ul className="flex flex-col mt-2 w-full">
+            <ul className="flex flex-col mt-2 w-full bg-gray-500">
               <li
                 className={`flex items-center  px-4 ${
-                  isOpen ? "justify-start" : "justify-center"
+                  isOpen || hoverOpen ? "justify-start" : "justify-center"
                 } w-full`}
               >
                 <Link to="/store" className="flex items-center w-full">
-                  <span className="ml-4">Store</span>
+                  <span className=""><FontAwesomeIcon className="pe-2" icon={faStore} />Store</span>
                 </Link>
               </li>
               <li
                 className={`flex items-center  px-4 ${
-                  isOpen ? "justify-start" : "justify-center"
+                  isOpen || hoverOpen ? "justify-start" : "justify-center"
                 } w-full`}
               >
-                <Link
-                  to="/change-password"
-                  className="flex items-center w-full"
-                >
-                  <span className="ml-4">Change Password</span>
+                <Link to="/change-password" className="flex items-center w-full">
+                  <span className=""><FontAwesomeIcon icon={faLock} className="me-2" />Change Password</span>
                 </Link>
               </li>
               <li
                 className={`flex items-center  px-4 ${
-                  isOpen ? "justify-start" : "justify-center"
+                  isOpen || hoverOpen ? "justify-start" : "justify-center"
                 } w-full`}
               >
-                <Link
-                  to="/smtp"
-                  className="flex items-center w-full"
-                >
-                  <span className="ml-4">SMTP</span>
+                <Link to="/smtp" className="flex items-center w-full">
+                  <span className=""><FontAwesomeIcon className="me-2" icon={faMessage} />SMTP</span>
                 </Link>
               </li>
             </ul>
           )}
 
-          {/* settings end */}
+          
         </div>
       </nav>
     </aside>

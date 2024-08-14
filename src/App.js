@@ -32,21 +32,34 @@ import Test from "./components/Test";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [hoverOpen, setHoverOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const handleSidebarHover = (hovering) => {
+    setHoverOpen(hovering);
+  };
+
   return (
     <Router>
-      <div className="flex overflow-hidden min-h-screen">
-        <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      <div className="flex overflow-hidden min-h-screen custom-height">
+        <Sidebar
+          isOpen={isSidebarOpen}
+          toggleSidebar={toggleSidebar}
+          onHover={handleSidebarHover}
+        />
         <div
           className={`flex flex-col flex-1 transition-all duration-300 ${
-            isSidebarOpen ? "ml-52" : "ml-16"
+            isSidebarOpen || hoverOpen ? "ml-52" : "ml-16"
           }`}
         >
-          <Header toggleSidebar={toggleSidebar} />
+          <Header
+            toggleSidebar={toggleSidebar}
+            isSidebarOpen={isSidebarOpen}
+            hoverOpen={hoverOpen}
+          />
           <main className="flex-1 p-4">
             <Routes>
               <Route path="/" element={<Navigate to="/dashboard" />} />
@@ -73,9 +86,7 @@ function App() {
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
-         
           <Footer className="mt-auto" />
-         
         </div>
       </div>
     </Router>
