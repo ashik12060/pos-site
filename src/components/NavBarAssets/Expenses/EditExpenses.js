@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function EditExpenses() {
   const [expenseDate, setExpenseDate] = useState('');
@@ -138,12 +139,12 @@ function EditExpenses() {
           >
             Update
           </button>
-          <button
+          <Link to='/dashboard'
             type="button"
             className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded ml-4 focus:outline-none focus:shadow-outline"
           >
             Close
-          </button>
+          </Link>
         </div>
       </form>
     </div>

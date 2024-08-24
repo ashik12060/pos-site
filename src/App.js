@@ -34,6 +34,8 @@ import StockAdjustmentDetails from "./components/NavBarAssets/Stock/StockAdjustm
 import StockUpdate from "./components/NavBarAssets/Stock/StockUpdate";
 import EditExpenses from "./components/NavBarAssets/Expenses/EditExpenses";
 import AddExpenses from "./components/NavBarAssets/Expenses/AddExpenses";
+import CategoryAdd from "./components/NavBarAssets/Expenses/CategoryAdd";
+import CategoryUpdate from "./components/NavBarAssets/Expenses/CategoryUpdate";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -83,6 +85,8 @@ function App() {
               <Route path="/category-list" element={<CategoryList />} />
               <Route path="/expense-list/add" element={<AddExpenses />} />
               <Route path="/expense-list/update" element={<EditExpenses />} />
+              <Route path="/expense-category/add" element={<CategoryAdd />} />
+              <Route path="/expense-category/update" element={<CategoryUpdate />} />
 
 
               <Route path="/total-report" element={<TotalReport />} />

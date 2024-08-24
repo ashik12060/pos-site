@@ -148,17 +148,7 @@ const ExpenseList = () => {
                     <option value="delete">Delete</option>
                   </select>
                 </td>
-                {/* <td className="px-4 py-2 text-right">
-                  <select
-                    className="bg-blue-500 text-white font-bold py-1 px-2 rounded w-30"
-                    onChange={(e) => handleAction(e.target.value)}
-                  >
-                    <option value="">Action</option>
-                    <option value="edit">Edit</option>
-                    <option value="edit">Edit</option>
-                    <option value="delete">Delete</option>
-                  </select>
-                </td> */}
+                
               </tr>
             ))}
             <tr className="bg-gray-100">
