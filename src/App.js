@@ -29,6 +29,9 @@ import Pos from "./components/Pos/Pos";
 import SalesList from "./components/Pos/SalesList";
 import NotFound from "./components/NotFound/NotFound";
 import Test from "./components/Test";
+import StockAdjustmentAdd from "./components/NavBarAssets/Stock/StockAdjustmentAdd";
+import StockAdjustmentDetails from "./components/NavBarAssets/Stock/StockAdjustmentDetails";
+import StockUpdate from "./components/NavBarAssets/Stock/StockUpdate";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -68,6 +71,10 @@ function App() {
               <Route path="/new-purchase" element={<NewPurchase />} />
               <Route path="/purchase-list" element={<PurchaseList />} />
               <Route path="/stock" element={<Stock />} />
+              <Route path="/stock/add" element={<StockAdjustmentAdd />} />
+              <Route path="/stock-adjustment/details" element={<StockAdjustmentDetails />} />
+              <Route path="/stock-adjustment/update" element={<StockUpdate/>} />
+
               <Route path="/expense-list" element={<ExpenseList />} />
               <Route path="/category-list" element={<CategoryList />} />
               <Route path="/total-report" element={<TotalReport />} />
@@ -83,6 +90,10 @@ function App() {
               <Route path="/pos" element={<Pos />} />
               <Route path="/sales-list" element={<SalesList />} />
               <Route path="/test" element={<Test />} />
+
+
+
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
