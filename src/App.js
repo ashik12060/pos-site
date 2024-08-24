@@ -32,6 +32,8 @@ import Test from "./components/Test";
 import StockAdjustmentAdd from "./components/NavBarAssets/Stock/StockAdjustmentAdd";
 import StockAdjustmentDetails from "./components/NavBarAssets/Stock/StockAdjustmentDetails";
 import StockUpdate from "./components/NavBarAssets/Stock/StockUpdate";
+import EditExpenses from "./components/NavBarAssets/Expenses/EditExpenses";
+import AddExpenses from "./components/NavBarAssets/Expenses/AddExpenses";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -70,6 +72,7 @@ function App() {
               <Route path="/purchase" element={<Purchase />} />
               <Route path="/new-purchase" element={<NewPurchase />} />
               <Route path="/purchase-list" element={<PurchaseList />} />
+
               <Route path="/stock" element={<Stock />} />
               <Route path="/stock/add" element={<StockAdjustmentAdd />} />
               <Route path="/stock-adjustment/details" element={<StockAdjustmentDetails />} />
@@ -77,6 +80,11 @@ function App() {
 
               <Route path="/expense-list" element={<ExpenseList />} />
               <Route path="/category-list" element={<CategoryList />} />
+              <Route path="/category-list" element={<CategoryList />} />
+              <Route path="/expense-list/add" element={<AddExpenses />} />
+              <Route path="/expense-list/update" element={<EditExpenses />} />
+
+
               <Route path="/total-report" element={<TotalReport />} />
               <Route path="/user-admin" element={<UserAdmin />} />
               <Route path="/add-customer" element={<AddCustomer />} />
