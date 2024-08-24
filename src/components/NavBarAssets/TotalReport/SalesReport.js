@@ -61,8 +61,31 @@ function SalesReport() {
   const totalReceive = tableData.reduce((sum, item) => sum + item.receive, 0);
   const totalTotal = tableData.reduce((sum, item) => sum + item.total, 0);
 
+
+  const handleAction = (actionType, entry) => {
+    switch (actionType) {
+      case "excel":
+        break;
+
+      case "pdf":
+        break;
+      default:
+        alert("Unknown action");
+    }
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
+       <td className="px-4 py-2 flex justify-end">
+              <select
+                className="bg-blue-500 text-white font-bold py-1 px-2 rounded w-30"
+                onChange={(e) => handleAction(e.target.value)}
+              >
+                <option value="">Export</option>
+                <option value="excel">Excel</option>
+                <option value="pdf">PDF</option>
+              </select>
+            </td>
       <h1 className="text-3xl font-bold mb-4 text-center">Sales & Payment Report</h1>
       <div className="flex justify-between mb-4">
         <div className="w-1/2">
