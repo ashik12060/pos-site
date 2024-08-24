@@ -1,6 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const PurchaseList = () => {
+
+  const [purchases, setPurchases] = useState([
+    {
+      purchaseDate: "15-07-2024",
+      purchaseCode: "PU0004",
+      purchaseStatus: "Received",
+      referenceNo: "FLSDHFoHFAFD",
+      supplierName: "EZ tech",
+      total: "1200.00",
+      paidAmount: "0.00",
+      paymentStatus: "Unpaid",
+      createdBy: "Salman",
+    },
+
+    {
+      purchaseDate: "20-08-2024",
+      purchaseCode: "PU0005",
+      purchaseStatus: "Pending",
+      referenceNo: "SKJDGH348",
+      supplierName: "Tech Supplies",
+      total: "1500.00",
+      paidAmount: "500.00",
+      paymentStatus: "Partially Paid",
+      createdBy: "Ayesha",
+    },
+    {
+      purchaseDate: "25-08-2024",
+      purchaseCode: "PU0006",
+      purchaseStatus: "Completed",
+      referenceNo: "DKSDJ34F",
+      supplierName: "Mega Store",
+      total: "2000.00",
+      paidAmount: "2000.00",
+      paymentStatus: "Paid",
+      createdBy: "John",
+    },
+  ]);
   return (
     <div className="container mx-auto p-4">
       <div className="mb-6">
@@ -30,57 +68,71 @@ const PurchaseList = () => {
         <select className="mb-4 md:mb-0 md:w-1/3 p-2 border rounded">
           <option>-All Warehouses-</option>
         </select>
-        <button className="bg-blue-500 text-white p-2 rounded shadow hover:bg-blue-700">
+        <Link to='/new-purchase' className="bg-blue-500 text-white p-2 rounded shadow hover:bg-blue-700">
           New Purchase
-        </button>
+        </Link>
       </div>
       
-      <div className="overflow-x-auto">
-        <table className="min-w-full bg-white">
-          <thead>
-            <tr>
-              <th className="px-4 py-2 border">Purchase Date</th>
-              <th className="px-4 py-2 border">Purchase Code</th>
-              <th className="px-4 py-2 border">Purchase Status</th>
-              <th className="px-4 py-2 border">Reference No.</th>
-              <th className="px-4 py-2 border">Supplier Name</th>
-              <th className="px-4 py-2 border">Total</th>
-              <th className="px-4 py-2 border">Paid Amount</th>
-              <th className="px-4 py-2 border">Payment Status</th>
-              <th className="px-4 py-2 border">Created by</th>
-              <th className="px-4 py-2 border">Action</th>
+<div className="overflow-x-auto">
+      <table className="min-w-full bg-white">
+        <thead>
+          <tr>
+            <th className="px-4 py-2 border">Purchase Date</th>
+            <th className="px-4 py-2 border">Purchase Code</th>
+            <th className="px-4 py-2 border">Purchase Status</th>
+            <th className="px-4 py-2 border">Reference No.</th>
+            <th className="px-4 py-2 border">Supplier Name</th>
+            <th className="px-4 py-2 border">Total</th>
+            <th className="px-4 py-2 border">Paid Amount</th>
+            <th className="px-4 py-2 border">Payment Status</th>
+            <th className="px-4 py-2 border">Created by</th>
+            <th className="px-4 py-2 border">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {purchases.map((purchase, index) => (
+            <tr key={index}>
+              <td className="px-4 py-2 border">{purchase.purchaseDate}</td>
+              <td className="px-4 py-2 border">{purchase.purchaseCode}</td>
+              <td className="px-4 py-2 border">{purchase.purchaseStatus}</td>
+              <td className="px-4 py-2 border">{purchase.referenceNo}</td>
+              <td className="px-4 py-2 border">{purchase.supplierName}</td>
+              <td className="px-4 py-2 border">{purchase.total}</td>
+              <td className="px-4 py-2 border">{purchase.paidAmount}</td>
+              <td
+                className={`px-4 py-2 border text-center font-semibold ${
+                  purchase.paymentStatus === "Paid"
+                    ? "bg-green-500"
+                    : purchase.paymentStatus === "Partially Paid"
+                    ? "bg-yellow-500"
+                    : "bg-red-500"
+                }`}
+              >
+                {purchase.paymentStatus}
+              </td>
+              <td className="px-4 py-2 border">{purchase.createdBy}</td>
+              <td className="px-4 py-2 border text-sm">
+                <select className="bg-blue-500 text-white font-bold py-2 px-4 rounded">
+                  <option value="">Action</option>
+                  <option className="bg-white text-black p-4 my-2" value="view">
+                    View
+                  </option>
+                  <option className="bg-white text-black p-4 my-2" value="edit">
+                    Edit
+                  </option>
+                  <option className="bg-white text-black p-4 my-2" value="print">
+                    Print
+                  </option>
+                  <option className="bg-white text-black p-4" value="delete">
+                    Delete
+                  </option>
+                </select>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="px-4 py-2 border">15-07-2024</td>
-              <td className="px-4 py-2 border">PU0004</td>
-              <td className="px-4 py-2 border">Received</td>
-              <td className="px-4 py-2 border">FLSDHFoHFAFD</td>
-              <td className="px-4 py-2 border">EZ tech</td>
-              <td className="px-4 py-2 border">1200.00</td>
-              <td className="px-4 py-2 border">0.00</td>
-              <td className="px-4 py-2 border">Unpaid</td>
-              <td className="px-4 py-2 border">Salman</td>
-             
-              <td className="px-4 py-2 border- border-gray-300 text-sm">
-                  <select                  
-                    className="bg-blue-500  text-white font-bold py-2 px-4 rounded"
-                    
-                    
-                  >
-                    <option className='' value=""  >Action</option>
-                    <option className='bg-white text-black p-4 my-2' value="view">View</option>
-                    <option className='bg-white text-black p-4 my-2' value="edit">Edit</option>
-                    <option className='bg-white text-black p-4 my-2' value="print">Print</option>
-                    <option className='bg-white text-black p-4' value="delete">Delete</option>
-                  </select>
-                </td>
-            </tr>
-          
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
+    </div>
     </div>
   );
 };
