@@ -183,8 +183,7 @@ function NewPurchase() {
                       type="tel"
                       id="mobile"
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      // value={mobile}
-                      // onChange={(e) => setMobile(e.target.value)}
+                   
                     />
                   </div>
                   <div className="col-span-1">
@@ -198,8 +197,7 @@ function NewPurchase() {
                       type="tel"
                       id="phone"
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      // value={phone}
-                      // onChange={(e) => setPhone(e.target.value)}
+                    
                     />
                   </div>
                   <div className="col-span-1">
@@ -213,8 +211,7 @@ function NewPurchase() {
                       type="email"
                       id="email"
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      // value={email}
-                      // onChange={(e) => setEmail(e.target.value)}
+                      
                     />
                   </div>
                   <div className="col-span-1">
@@ -228,8 +225,7 @@ function NewPurchase() {
                       type="text"
                       id="gstNumber"
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      // value={gstNumber}
-                      // onChange={(e) => setGstNumber(e.target.value)}
+                     
                     />
                   </div>
                   <div className="col-span-1">
@@ -243,8 +239,7 @@ function NewPurchase() {
                       type="text"
                       id="taxNumber"
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      // value={taxNumber}
-                      // onChange={(e) => setTaxNumber(e.target.value)}
+                      
                     />
                   </div>
                   <div className="col-span-1">
@@ -258,8 +253,7 @@ function NewPurchase() {
                       type="number"
                       id="openingBalance"
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      // value={openingBalance}
-                      // onChange={(e) => setOpeningBalance(e.target.value)}
+                   
                     />
                   </div>
                   <div className="col-span-1">
@@ -272,12 +266,11 @@ function NewPurchase() {
                     <select
                       id="country"
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      // value={country}
-                      // onChange={(e) => setCountry(e.target.value)}
+                     
                     >
                       <option value="">-Select-</option>
                       <option value="India">India</option>
-                      {/* Add more countries here */}
+                  
                     </select>
                   </div>
                   <div className="col-span-1">
@@ -290,11 +283,10 @@ function NewPurchase() {
                     <select
                       id="state"
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      // value={state}
-                      // onChange={(e) => setState(e.target.value)}
+                   
                     >
                       <option value="">-Select-</option>
-                      {/* Add more states here */}
+                      
                     </select>
                   </div>
                   <div className="col-span-1">
@@ -308,8 +300,7 @@ function NewPurchase() {
                       type="text"
                       id="city"
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      // value={city}
-                      // onChange={(e) => setCity(e.target.value)}
+                    
                     />
                   </div>
                   <div className="col-span-1">
@@ -323,8 +314,7 @@ function NewPurchase() {
                       type="text"
                       id="postcode"
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      // value={postcode}
-                      // onChange={(e) => setPostcode(e.target.value)}
+                     
                     />
                   </div>
                   <div className="col-span-1">
@@ -337,8 +327,7 @@ function NewPurchase() {
                     <textarea
                       id="address"
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      // value={address}
-                      // onChange={(e) => setAddress(e.target.value)}
+                     
                     />
                   </div>
                 </div>
@@ -416,8 +405,7 @@ function NewPurchase() {
                       <select
                         id="brand"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={country}
-                        // onChange={(e) => setCountry(e.target.value)}
+                        
                       >
                         <option value="">-Select-</option>
                         <option value="msi">MSI</option>
@@ -435,8 +423,7 @@ function NewPurchase() {
                       <select
                         id="categories"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={country}
-                        // onChange={(e) => setCountry(e.target.value)}
+                       
                       >
                         <option value="">-Select-</option>
                         <option value="electric">Electric</option>
@@ -636,8 +623,7 @@ function NewPurchase() {
                         type="tel"
                         id="mobile"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={mobile}
-                        // onChange={(e) => setMobile(e.target.value)}
+                    
                       />
                     </div>
                     <div className="col-span-1">
@@ -651,8 +637,7 @@ function NewPurchase() {
                         type="tel"
                         id="phone"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={phone}
-                        // onChange={(e) => setPhone(e.target.value)}
+                     
                       />
                     </div>
                     <div className="col-span-1">
@@ -666,8 +651,7 @@ function NewPurchase() {
                         type="email"
                         id="email"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={email}
-                        // onChange={(e) => setEmail(e.target.value)}
+                        
                       />
                     </div>
                     <div className="col-span-1">
@@ -681,8 +665,7 @@ function NewPurchase() {
                         type="text"
                         id="gstNumber"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={gstNumber}
-                        // onChange={(e) => setGstNumber(e.target.value)}
+                      
                       />
                     </div>
                     <div className="col-span-1">
@@ -696,8 +679,7 @@ function NewPurchase() {
                         type="text"
                         id="taxNumber"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={taxNumber}
-                        // onChange={(e) => setTaxNumber(e.target.value)}
+                    
                       />
                     </div>
                     <div className="col-span-1">
@@ -711,8 +693,7 @@ function NewPurchase() {
                         type="number"
                         id="openingBalance"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={openingBalance}
-                        // onChange={(e) => setOpeningBalance(e.target.value)}
+                  
                       />
                     </div>
                     <div className="col-span-1">
@@ -725,12 +706,11 @@ function NewPurchase() {
                       <select
                         id="country"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={country}
-                        // onChange={(e) => setCountry(e.target.value)}
+                       
                       >
                         <option value="">-Select-</option>
                         <option value="India">India</option>
-                        {/* Add more countries here */}
+                       
                       </select>
                     </div>
                     <div className="col-span-1">
@@ -743,11 +723,10 @@ function NewPurchase() {
                       <select
                         id="state"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={state}
-                        // onChange={(e) => setState(e.target.value)}
+                     
                       >
                         <option value="">-Select-</option>
-                        {/* Add more states here */}
+                   
                       </select>
                     </div>
                     <div className="col-span-1">
@@ -761,8 +740,7 @@ function NewPurchase() {
                         type="text"
                         id="city"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={city}
-                        // onChange={(e) => setCity(e.target.value)}
+                    
                       />
                     </div>
                     <div className="col-span-1">
@@ -776,8 +754,7 @@ function NewPurchase() {
                         type="text"
                         id="postcode"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={postcode}
-                        // onChange={(e) => setPostcode(e.target.value)}
+                     
                       />
                     </div>
                     <div className="col-span-1">
@@ -790,8 +767,7 @@ function NewPurchase() {
                       <textarea
                         id="address"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={address}
-                        // onChange={(e) => setAddress(e.target.value)}
+                      
                       />
                     </div>
                   </div>
@@ -836,7 +812,6 @@ function NewPurchase() {
                   <input
                     type="text"
                     value={item.itemName}
-                    // onChange={(e) => handleInputChange(index, 'itemName', e.target.value)}
                     className="w-full px-2 py-1 border rounded-md"
                   />
                 </td>
@@ -844,7 +819,6 @@ function NewPurchase() {
                   <input
                     type="number"
                     value={item.quantity}
-                    // onChange={(e) => handleInputChange(index, 'quantity', e.target.value)}
                     className="w-full px-2 py-1 border rounded-md"
                   />
                 </td>
@@ -852,7 +826,6 @@ function NewPurchase() {
                   <input
                     type="number"
                     value={item.purchasePrice}
-                    // onChange={(e) => handleInputChange(index, 'purchasePrice', e.target.value)}
                     className="w-full px-2 py-1 border rounded-md"
                   />
                 </td>
@@ -860,7 +833,6 @@ function NewPurchase() {
                   <input
                     type="number"
                     value={item.discount}
-                    // onChange={(e) => handleInputChange(index, 'discount', e.target.value)}
                     className="w-full px-2 py-1 border rounded-md"
                   />
                 </td>
@@ -868,7 +840,6 @@ function NewPurchase() {
                   <input
                     type="number"
                     value={item.taxAmount}
-                    // onChange={(e) => handleInputChange(index, 'taxAmount', e.target.value)}
                     className="w-full px-2 py-1 border rounded-md"
                   />
                 </td>
@@ -876,13 +847,12 @@ function NewPurchase() {
                   <input
                     type="number"
                     value={item.unitCost}
-                    // onChange={(e) => handleInputChange(index, 'unitCost', e.target.value)}
                     className="w-full px-2 py-1 border rounded-md"
                   />
                 </td>
                 <td className="px-4 py-2">{item.totalAmount}</td>
                 <td className="px-4 py-2">
-                  {/* Add action buttons for each item */}
+                 
                 </td>
               </tr>
             ))}
@@ -901,7 +871,6 @@ function NewPurchase() {
                   type="number"
                   id="otherCharges"
                   value={otherCharges}
-                  // onChange={(e) => setOtherCharges(e.target.value)}
                   className="w-24 px-2 py-1 border rounded-md"
                 />
               </div>
@@ -913,7 +882,6 @@ function NewPurchase() {
                   type="number"
                   id="discountOnAll"
                   value={discountOnAll}
-                  // onChange={(e) => setDiscountOnAll(e.target.value)}
                   className="w-24 px-2 py-1 border rounded-md"
                 />
               </div>

@@ -140,17 +140,7 @@ function UserAdmin() {
                     {user.status}
                   </span>
                 </td>
-                {/* <td className="px-4 py-2 border-b border-gray-300 text-sm">
-                  <select                  
-                    className="bg-blue-500  text-white font-bold py-2 px-4 rounded"
-                    onChange={(e) => handleAction(e.target.value, user.userName)}
-                    defaultValue=""
-                  >
-                    <option className='' value="" disabled hidden>Action</option>
-                    <option className='bg-white text-black p-4 my-2' value="edit">Edit</option>
-                    <option className='bg-white text-black p-4' value="delete">Delete</option>
-                  </select>
-                </td> */}
+               
 
                 <td className="px-4 py-2">
                   <select

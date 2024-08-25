@@ -184,7 +184,6 @@ function StoreContent() {
   );
 }
 
-// Placeholder components for System, Sales, and Prefixes
 function SystemContent() {
   return <div className="container mx-auto p-4">
   <h1 className="text-2xl font-bold mb-4">Settings</h1>
@@ -195,12 +194,10 @@ function SystemContent() {
       </label>
       <select
         id="timezone"
-        // value={timezone}
-        // onChange={handleTimezoneChange}
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       >
         <option value="Asia/Dhaka">Asia/Dhaka</option>
-        {/* Add more timezones here */}
+        
       </select>
     </div>
     <div>
@@ -209,12 +206,9 @@ function SystemContent() {
       </label>
       <select
         id="language"
-        // value={language}
-        // onChange={handleLanguageChange}
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       >
         <option value="English">English</option>
-        {/* Add more languages here */}
       </select>
     </div>
     <div>
@@ -224,8 +218,6 @@ function SystemContent() {
       <input
         type="text"
         id="dateFormat"
-        // value={dateFormat}
-        // onChange={handleDateFormatChange}
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       />
     </div>
@@ -235,8 +227,6 @@ function SystemContent() {
       </label>
       <input
         type="checkbox"
-        // checked={enableRoundOff}
-        // onChange={handleEnableRoundOffChange}
         className="form-checkbox h-5 w-5 text-blue-600"
       />
     </div>
@@ -246,8 +236,6 @@ function SystemContent() {
       </label>
       <select
         id="timeFormat"
-        // value={timeFormat}
-        // onChange={handleTimeFormatChange}
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       >
         <option value="12 Hours">12 Hours</option>
@@ -261,14 +249,11 @@ function SystemContent() {
       </label>
       <select
         id="currency"
-        // value={currency}
-        // onChange={handleCurrencyChange}
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       >
         <option value="Saudi Arabian Riyal SAR (-SR)">
           Saudi Arabian Riyal SAR (-SR)
         </option>
-        {/* Add more currencies here */}
       </select>
     </div>
     <div></div>
@@ -281,8 +266,6 @@ function SystemContent() {
       </label>
       <select
         id="currencySymbolPlacement"
-        // value={currencySymbolPlacement}
-        // onChange={handleCurrencySymbolPlacementChange}
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       >
         <option value="After Amount">After Amount</option>
@@ -297,8 +280,6 @@ function SystemContent() {
       <input
         type="number"
         id="decimals"
-        // value={decimals}
-        // onChange={handleDecimalsChange}
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       />
     </div>
@@ -313,8 +294,6 @@ function SystemContent() {
       <input
         type="number"
         id="decimalsForQuantity"
-        // value={decimalsForQuantity}
-        // onChange={handleDecimalsForQuantityChange}
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       />
     </div>
@@ -350,8 +329,6 @@ function SalesContent() {
         type="number"
         id="defaultSalesDiscount"
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        // value={defaultSalesDiscount}
-        // onChange={(e) => setDefaultSalesDiscount(e.target.value)}
       />
     </div>
 
@@ -361,8 +338,6 @@ function SalesContent() {
           type="checkbox"
           id="showPaidAmountAndChangeReturn"
           className="form-checkbox h-5 w-5 text-gray-600"
-        //   checked={showPaidAmountAndChangeReturn}
-        //   onChange={() => setShowPaidAmountAndChangeReturn(!showPaidAmountAndChangeReturn)}
         />
         <label
           htmlFor="showPaidAmountAndChangeReturn"
@@ -383,11 +358,8 @@ function SalesContent() {
       <select
         id="salesInvoiceFormats"
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        // value={salesInvoiceFormats}
-        // onChange={(e) => setSalesInvoiceFormats(e.target.value)}
       >
         <option value="Default">Default</option>
-        {/* Add more options here */}
       </select>
     </div>
 
@@ -401,11 +373,8 @@ function SalesContent() {
       <select
         id="posInvoiceFormats"
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        // value={posInvoiceFormats}
-        // onChange={(e) => setPosInvoiceFormats(e.target.value)}
       >
         <option value="Default">Default</option>
-        {/* Add more options here */}
       </select>
     </div>
 
@@ -415,8 +384,6 @@ function SalesContent() {
           type="checkbox"
           id="showMRPColumn"
           className="form-checkbox h-5 w-5 text-gray-600"
-        //   checked={showMRPColumn}
-        //   onChange={() => setShowMRPColumn(!showMRPColumn)}
         />
         <label htmlFor="showMRPColumn" className="ml-2 text-gray-700">
           Show MRP Column on POS Invoice
@@ -430,8 +397,6 @@ function SalesContent() {
           type="checkbox"
           id="showPreviousBalance"
           className="form-checkbox h-5 w-5 text-gray-600"
-        //   checked={showPreviousBalance}
-        //   onChange={() => setShowPreviousBalance(!showPreviousBalance)}
         />
         <label
           htmlFor="showPreviousBalance"
@@ -452,11 +417,8 @@ function SalesContent() {
       <select
         id="numberToWordsFormat"
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        // value={numberToWordsFormat}
-        // onChange={(e) => setNumberToWordsFormat(e.target.value)}
       >
         <option value="Default">Default</option>
-        {/* Add more options here */}
       </select>
     </div>
 
@@ -470,8 +432,6 @@ function SalesContent() {
       <textarea
         id="salesInvoiceFooterText"
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        // value={salesInvoiceFooterText}
-        // onChange={(e) => setSalesInvoiceFooterText(e.target.value)}
       />
     </div>
 
@@ -488,8 +448,6 @@ function SalesContent() {
             type="radio"
             id="showOnInvoice"
             className="form-radio h-5 w-5 text-gray-600"
-            // checked={showOnInvoice}
-            // onChange={() => setShowOnInvoice(true)}
           />
           <label htmlFor="showOnInvoice" className="ml-2 text-gray-700">
             Show on Invoice
@@ -500,8 +458,7 @@ function SalesContent() {
             type="radio"
             id="hideOnInvoice"
             className="form-radio h-5 w-5 text-gray-600"
-            // checked={hideOnInvoice}
-            // onChange={() => setHideOnInvoice(true)}
+            
           />
           <label htmlFor="hideOnInvoice" className="ml-2 text-gray-700">
             Hide on Invoice
@@ -514,8 +471,6 @@ function SalesContent() {
             type="radio"
             id="showOnPOSInvoice"
             className="form-radio h-5 w-5 text-gray-600"
-            // checked={showOnPOSInvoice}
-            // onChange={() => setShowOnPOSInvoice(true)}
           />
           <label htmlFor="showOnPOSInvoice" className="ml-2 text-gray-700">
             Show on POS Invoice
@@ -526,8 +481,6 @@ function SalesContent() {
             type="radio"
             id="hideOnPOSInvoice"
             className="form-radio h-5 w-5 text-gray-600"
-            // checked={hideOnPOSInvoice}
-            // onChange={() => setHideOnPOSInvoice(true)}
           />
           <label htmlFor="hideOnPOSInvoice" className="ml-2 text-gray-700">
             Hide on POS Invoice
@@ -537,8 +490,6 @@ function SalesContent() {
       <textarea
         id="invoiceTermsAndConditions"
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-2"
-        // value={invoiceTermsAndConditions}
-        // onChange={(e) => setInvoiceTermsAndConditions(e.target.value)}
       />
     </div>
 
@@ -609,7 +560,6 @@ function PrefixesContent() {
             className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
           />
         </div>
-        {/* Add other input fields similarly */}
         <div>
           <label htmlFor="purchaseReturn" className="block text-sm font-medium text-gray-700">
             Purchase Return*
@@ -632,7 +582,6 @@ function PrefixesContent() {
             className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
           />
         </div>
-        {/* Continue with the other fields */}
         
         <div className="col-span-1 md:col-span-2 flex justify-center">
           <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full sm:w-auto">

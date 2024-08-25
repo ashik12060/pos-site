@@ -24,7 +24,7 @@ const EditItem = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission logic here
+    
     console.log("Form submitted:", {
       warehouse,
       date,
@@ -73,7 +73,7 @@ const EditItem = () => {
             >
               <option value="">Select Warehouse</option>
               <option value="Botiyaghata">Botiyaghata</option>
-              {/* Add more options here */}
+              
             </select>
           </div>
           <div>
@@ -155,8 +155,7 @@ const EditItem = () => {
                       <select
                         id="brand"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={country}
-                        // onChange={(e) => setCountry(e.target.value)}
+                     
                       >
                         <option value="">-Select-</option>
                         <option value="msi">MSI</option>
@@ -174,8 +173,7 @@ const EditItem = () => {
                       <select
                         id="categories"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={country}
-                        // onChange={(e) => setCountry(e.target.value)}
+                     
                       >
                         <option value="">-Select-</option>
                         <option value="electric">Electric</option>
@@ -375,8 +373,7 @@ const EditItem = () => {
                         type="tel"
                         id="mobile"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={mobile}
-                        // onChange={(e) => setMobile(e.target.value)}
+                       
                       />
                     </div>
                     <div className="col-span-1">
@@ -390,8 +387,7 @@ const EditItem = () => {
                         type="tel"
                         id="phone"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={phone}
-                        // onChange={(e) => setPhone(e.target.value)}
+                       
                       />
                     </div>
                     <div className="col-span-1">
@@ -405,8 +401,7 @@ const EditItem = () => {
                         type="email"
                         id="email"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={email}
-                        // onChange={(e) => setEmail(e.target.value)}
+                       
                       />
                     </div>
                     <div className="col-span-1">
@@ -420,8 +415,7 @@ const EditItem = () => {
                         type="text"
                         id="gstNumber"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={gstNumber}
-                        // onChange={(e) => setGstNumber(e.target.value)}
+                      
                       />
                     </div>
                     <div className="col-span-1">
@@ -435,8 +429,7 @@ const EditItem = () => {
                         type="text"
                         id="taxNumber"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={taxNumber}
-                        // onChange={(e) => setTaxNumber(e.target.value)}
+                       
                       />
                     </div>
                     <div className="col-span-1">
@@ -450,8 +443,7 @@ const EditItem = () => {
                         type="number"
                         id="openingBalance"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={openingBalance}
-                        // onChange={(e) => setOpeningBalance(e.target.value)}
+                        
                       />
                     </div>
                     <div className="col-span-1">
@@ -464,12 +456,11 @@ const EditItem = () => {
                       <select
                         id="country"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={country}
-                        // onChange={(e) => setCountry(e.target.value)}
+                     
                       >
                         <option value="">-Select-</option>
                         <option value="India">India</option>
-                        {/* Add more countries here */}
+                       
                       </select>
                     </div>
                     <div className="col-span-1">
@@ -482,11 +473,9 @@ const EditItem = () => {
                       <select
                         id="state"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={state}
-                        // onChange={(e) => setState(e.target.value)}
+                      
                       >
                         <option value="">-Select-</option>
-                        {/* Add more states here */}
                       </select>
                     </div>
                     <div className="col-span-1">
@@ -500,8 +489,7 @@ const EditItem = () => {
                         type="text"
                         id="city"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={city}
-                        // onChange={(e) => setCity(e.target.value)}
+                      
                       />
                     </div>
                     <div className="col-span-1">
@@ -515,8 +503,7 @@ const EditItem = () => {
                         type="text"
                         id="postcode"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={postcode}
-                        // onChange={(e) => setPostcode(e.target.value)}
+                       
                       />
                     </div>
                     <div className="col-span-1">
@@ -529,8 +516,7 @@ const EditItem = () => {
                       <textarea
                         id="address"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        // value={address}
-                        // onChange={(e) => setAddress(e.target.value)}
+                       
                       />
                     </div>
                   </div>
@@ -629,18 +615,7 @@ const EditItem = () => {
           </button>
         </div>
       </form>
-      {/* <div className="mb-4">
-        <label htmlFor="name" className="block mb-1 text-lg font-semibold">
-          Item Name:
-        </label>
-        <input
-          id="name"
-          type="text"
-          value={item.name}
-          onChange={handleNameChange}
-          className="border border-gray-300 rounded px-2 py-1 w-full"
-        />
-      </div> */}
+      
       
      
     </div>

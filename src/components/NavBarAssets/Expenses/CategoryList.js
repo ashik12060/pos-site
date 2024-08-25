@@ -140,37 +140,7 @@ const CategoryList = () => {
                     <option value="delete">Delete</option>
                   </select>
                 </td>
-                {/* <td className="px-4 py-2 relative">
-                  <button
-                    onClick={() => toggleDropdown(category.id)}
-                    className="bg-blue-500 text-white py-1 px-2 rounded relative"
-                  >
-                    Action
-                    {dropdownOpen === category.id && (
-                      <div
-                        className="absolute right-0 top-0 mt-0 w-28 bg-white border rounded shadow-lg z-10"
-                        style={{ transform: "translateY(-100%)" }}
-                      >
-                        <ul className="py-1">
-                          <li
-                            className="px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100"
-                            onClick={() => alert("Edit Clicked")}
-                          >
-                            <i className="fas fa-edit text-blue-500 mr-2"></i>
-                            Edit
-                          </li>
-                          <li
-                            className="px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100"
-                            onClick={() => alert("Delete Clicked")}
-                          >
-                            <i className="fas fa-trash text-red-500 mr-2"></i>
-                            Delete
-                          </li>
-                        </ul>
-                      </div>
-                    )}
-                  </button>
-                </td> */}
+               
               </tr>
             ))}
           </tbody>

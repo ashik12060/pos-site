@@ -51,7 +51,7 @@ const Stock = () => {
   const handleAction = (actionType, entry) => {
     switch (actionType) {
       case "view":
-        navigate(`/stock-adjustment/details`); // Navigate to the desired URL
+        navigate(`/stock-adjustment/details`); 
         break;
       case "edit":
         alert(`Editing entry with reference no: ${entry.referenceNo}`);

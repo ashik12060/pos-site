@@ -264,7 +264,7 @@ const Sidebar = ({ isOpen, toggleSidebar, onHover }) => {
             </ul>
           )}
 
-          {/* user/admin starts */}
+    
           <Link
             to="/user-admin"
             className={`flex items-center py-2 ${
