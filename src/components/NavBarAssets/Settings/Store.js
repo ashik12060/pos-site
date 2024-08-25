@@ -27,7 +27,7 @@ function Store() {
               <button
                 className={`inline-block p-4 rounded-t-lg ${
                   activeTab === tab ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-gray-600 hover:border-gray-300'
-                }`}
+                }`} 
                 onClick={() => setActiveTab(tab)}
               >
                 {tab}
@@ -561,7 +561,93 @@ function SalesContent() {
 }
 
 function PrefixesContent() {
-  return <div>Prefixes Content</div>;
+  return (
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <h1 className="text-3xl font-bold mb-4">Prefixes</h1>
+      <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="category" className="block text-sm font-medium text-gray-700">
+            Category*
+          </label>
+          <input
+            type="text"
+            name="category"
+            id="category"
+            className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+          />
+        </div>
+        <div>
+          <label htmlFor="item" className="block text-sm font-medium text-gray-700">
+            Item*
+          </label>
+          <input
+            type="text"
+            name="item"
+            id="item"
+            className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+          />
+        </div>
+        <div>
+          <label htmlFor="supplier" className="block text-sm font-medium text-gray-700">
+            Supplier*
+          </label>
+          <input
+            type="text"
+            name="supplier"
+            id="supplier"
+            className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+          />
+        </div>
+        <div>
+          <label htmlFor="purchase" className="block text-sm font-medium text-gray-700">
+            Purchase*
+          </label>
+          <input
+            type="text"
+            name="purchase"
+            id="purchase"
+            className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+          />
+        </div>
+        {/* Add other input fields similarly */}
+        <div>
+          <label htmlFor="purchaseReturn" className="block text-sm font-medium text-gray-700">
+            Purchase Return*
+          </label>
+          <input
+            type="text"
+            name="purchaseReturn"
+            id="purchaseReturn"
+            className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+          />
+        </div>
+        <div>
+          <label htmlFor="customer" className="block text-sm font-medium text-gray-700">
+            Customer*
+          </label>
+          <input
+            type="text"
+            name="customer"
+            id="customer"
+            className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+          />
+        </div>
+        {/* Continue with the other fields */}
+        
+        <div className="col-span-1 md:col-span-2 flex justify-center">
+          <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full sm:w-auto">
+            Update
+          </button>
+          <button type="button" className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-2 w-full sm:w-auto">
+            Close
+          </button>
+        </div>
+      </form>
+    </div>
+  );
 }
+
+
+
 
 export default Store;
