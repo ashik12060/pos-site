@@ -195,12 +195,7 @@ const AddCustomer = () => {
             )}
           </div>
         </div>
-        <button
-          type="submit"
-          className="mt-6 w-full md:w-auto px-4 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-          Save
-        </button>
+        
       </form>
 
       <div className="container mx-auto p-4 md:p-8">
