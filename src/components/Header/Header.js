@@ -1,14 +1,23 @@
-
-
-import { faCircleUser, faLanguage, faSquarePlus } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCircleUser,
+  faLanguage,
+  faSquarePlus,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useRef, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
+import auth from '../../firebase.init';
 
 const Header = ({ toggleSidebar }) => {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const [user] = useAuthState(auth);
+  const logout = () => {
+    signOut(auth);
+  };
 
   const toggleDropdown = () => {
     setIsToggleOpen(!isToggleOpen);
@@ -42,10 +51,16 @@ const Header = ({ toggleSidebar }) => {
         <Link to="/pos" className="px-3 py-1 rounded">
           <FontAwesomeIcon className="pe-1" icon={faSquarePlus} /> POS
         </Link>
-        <button onClick={toggleDropdown} className="px-3 py-1 rounded">
-          <FontAwesomeIcon className="pe-1 text-2xl" icon={faCircleUser} />{' '}
-          Salman
-        </button>
+        {user ? (
+          <button onClick={toggleDropdown} className="px-3 py-1 rounded">
+            <FontAwesomeIcon className="pe-1 text-2xl" icon={faCircleUser} />{' '}
+            Salman
+          </button>
+        ) : (
+          <Link to="/login" className="pr-5">
+            Login
+          </Link>
+        )}
 
         {isToggleOpen && (
           <div
@@ -81,15 +96,12 @@ const Header = ({ toggleSidebar }) => {
               >
                 Profile
               </Link>
-              <a
-                href="#"
+              <button
+                onClick={logout}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                role="menuitem"
-                tabIndex="-1"
-                id="user-menu-item-1"
               >
                 Sign out
-              </a>
+              </button>
             </div>
           </div>
         )}

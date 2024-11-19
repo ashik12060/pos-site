@@ -5,8 +5,11 @@ import {
   BrowserRouter as Router,
   Routes,
 } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
+import CreateAccount from './components/Login/CreateAccount';
 import Login from './components/Login/Login';
 import Attendance from './components/NavBarAssets/Attendance';
 import AddCustomer from './components/NavBarAssets/Contacts/AddCustomer';
@@ -78,6 +81,7 @@ function App() {
               <Route path="/new-purchase" element={<NewPurchase />} />
               <Route path="/purchase-list" element={<PurchaseList />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/createAccount" element={<CreateAccount />} />
 
               <Route path="/stock" element={<Stock />} />
               <Route path="/stock/add" element={<StockAdjustmentAdd />} />
@@ -128,6 +132,7 @@ function App() {
           </main>
           <Footer className="mt-auto" />
         </div>
+        <ToastContainer />
       </div>
     </Router>
   );
