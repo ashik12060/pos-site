@@ -5,17 +5,19 @@ import {
   useUpdateProfile,
 } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const CreateAccount = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const imageHostKey = 'c70a5fc10619997bd7315f2bf28d0f3e';
   const {
     register,
     formState: { errors },
     handleSubmit,
     watch,
+    reset,
   } = useForm();
 
   const [createUserWithEmailAndPassword, user, loading, error] =
@@ -34,24 +36,40 @@ const CreateAccount = () => {
   // const password = watch('password');
 
   const createDBUser = data => {
-    // console.log(data);
-    const updateData = {
-      name: data.name,
-      email: data.email,
-      role: data.role,
-      storeName: data.storeName,
-      phone: data.phone,
-    };
-    fetch(`http://localhost:5000/create-user/${data?.email}`, {
-      method: 'PUT',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(updateData),
+    const image = data.img[0];
+    const formData = new FormData();
+    formData.append('image', image);
+    const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imageHostKey}`;
+    fetch(url, {
+      method: 'POST',
+      body: formData,
     })
       .then(res => res.json())
-      .then(data => {
-        toast.success('Create profile');
+      .then(imageData => {
+        const image = imageData.data.url;
+        const updateData = {
+          name: data.name,
+          email: data.email,
+          role: data.role,
+          storeName: data.storeName,
+          phone: data.phone,
+          img: image,
+        };
+
+        console.log('aci', updateData);
+        fetch(`http://localhost:5000/create-user/${data?.email}`, {
+          method: 'PUT',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify(updateData),
+        })
+          .then(res => res.json())
+          .then(data => {
+            navigate('/user-admin');
+            toast.success('Create profile');
+            reset();
+          });
       });
   };
 
@@ -59,25 +77,23 @@ const CreateAccount = () => {
     createUserWithEmailAndPassword(data.email, data.password);
     updateProfile({ displayName: data.name });
     createDBUser(data);
-
-    navigate('/');
   };
   return (
     <div
       style={{
-        backgroundImage: `url("https://cdn.wallpapersafari.com/31/82/cyBn5z.jpg")`,
+        // backgroundImage: `url("https://cdn.wallpapersafari.com/31/82/cyBn5z.jpg")`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         width: '100%',
         // height: '900px',
       }}
-      className="  bg-slate-700"
+      className="  "
     >
       <div className="flex justify-center   pt-5 pb-5">
-        <div className="card  shadow-2xl bg-violet-500">
+        <div className="card  shadow-xl bg-violet-200">
           <div className="card-body text-indigo-900">
-            <h2 className="text-center text-2xl font-bold mb-0">SignUp</h2>
+            <h2 className="text-center text-2xl font-bold mb-0">Add User</h2>
 
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="flex gap-x-4 text-black">
@@ -213,6 +229,30 @@ const CreateAccount = () => {
                         )}
                       </label>
                     </div>
+                    {/* image */}
+                    <div className="form-control w-full ">
+                      <label className="label">
+                        <span className="label-text">Image</span>
+                      </label>
+                      <input
+                        type="file"
+                        placeholder="Image"
+                        className="input input-bordered  w-full pt-2"
+                        {...register('img', {
+                          required: {
+                            value: true,
+                            message: 'Image is Required',
+                          },
+                        })}
+                      />
+                      <label className="label">
+                        {errors.img?.type === 'required' && (
+                          <span className="label-text-alt text-red-500">
+                            {errors.img.message}
+                          </span>
+                        )}
+                      </label>
+                    </div>
                     {/* Password */}
                     <div className="form-control w-full  ">
                       <label className="label">
@@ -223,7 +263,7 @@ const CreateAccount = () => {
                       <input
                         type="password"
                         placeholder="Password"
-                        className="input input-bordered text-black font-bold bg-white w-full   "
+                        className="input input-bordered text-black  bg-white w-full   "
                         {...register('password', {
                           required: {
                             value: true,
@@ -258,7 +298,7 @@ const CreateAccount = () => {
                       <input
                         type="password"
                         placeholder="Confirm Password"
-                        className="input input-bordered text-black font-bold bg-white w-full   "
+                        className="input input-bordered text-black  bg-white w-full   "
                         {...register('confirmPassword', {
                           required: {
                             value: true,
@@ -290,18 +330,18 @@ const CreateAccount = () => {
               <input
                 className="btn btn-primary w-full text-white mt-0"
                 type="submit"
-                value="Sign Up"
+                value="Add"
               />
             </form>
-            <p className=" text-white ">
-              Already have a account{' '}
-              <Link
-                to="/login"
-                className=" text-orange-100 ml-3  hover:text-primary hover:underline"
-              >
-                Login
-              </Link>
-            </p>
+            {/* <p className=" text-white ">
+                Already have a account{' '}
+                <Link
+                  to="/login"
+                  className=" text-orange-100 ml-3  hover:text-primary hover:underline"
+                >
+                  Login
+                </Link>
+              </p> */}
           </div>
         </div>
       </div>

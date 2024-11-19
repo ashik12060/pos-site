@@ -34,7 +34,6 @@ import StockUpdate from './components/NavBarAssets/Stock/StockUpdate';
 import TotalReport from './components/NavBarAssets/TotalReport';
 import ProfitLossReport from './components/NavBarAssets/TotalReport/ProfitLossReport';
 import SalesReport from './components/NavBarAssets/TotalReport/SalesReport';
-import UserAdd from './components/NavBarAssets/UserAdmin/UserAdd';
 import UserAdmin from './components/NavBarAssets/UserAdmin/UserAdmin';
 import UserEdit from './components/NavBarAssets/UserAdmin/UserEdit';
 import NotFound from './components/NotFound/NotFound';
@@ -81,7 +80,7 @@ function App() {
               <Route path="/new-purchase" element={<NewPurchase />} />
               <Route path="/purchase-list" element={<PurchaseList />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/createAccount" element={<CreateAccount />} />
+              <Route path="/user/add" element={<CreateAccount />} />
 
               <Route path="/stock" element={<Stock />} />
               <Route path="/stock/add" element={<StockAdjustmentAdd />} />
@@ -109,7 +108,7 @@ function App() {
 
               <Route path="/user-admin" element={<UserAdmin />} />
               <Route path="/user/edit" element={<UserEdit />} />
-              <Route path="/user/add" element={<UserAdd />} />
+              {/* <Route path="/user/add" element={<UserAdd />} /> */}
 
               <Route path="/add-customer" element={<AddCustomer />} />
               <Route path="/customers-list" element={<CustomersList />} />

@@ -4,7 +4,7 @@ import {
   useSignInWithGoogle,
 } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 // import axios from "axios";
 
@@ -141,12 +141,12 @@ const Login = () => {
               />
             </form>
 
-            <Link
+            {/* <Link
               to="/createAccount"
               className=" hover:text-primary hover:underline  "
             >
               Create New Account
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
