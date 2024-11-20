@@ -19,59 +19,65 @@ const CreateAccount = () => {
     watch,
     reset,
   } = useForm();
+   const currentDate = new Date();
+   const formattedDate = currentDate.toLocaleDateString('en-US', {
+     year: 'numeric',
+     month: 'numeric',
+     day: 'numeric',
+   });
+   const [createUserWithEmailAndPassword, user, loading, error] =
+     useCreateUserWithEmailAndPassword(auth);
 
-  const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+   const navigate = useNavigate();
+   const location = useLocation();
 
-  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-  const navigate = useNavigate();
-  const location = useLocation();
+   let from = location.state?.from?.pathname || '/';
 
-  let from = location.state?.from?.pathname || '/';
+   let signInError;
+   if (gUser) {
+     navigate('/');
+   }
+   // const password = watch('password');
 
-  let signInError;
-  if (gUser) {
-    navigate('/');
-  }
-  // const password = watch('password');
+   const createDBUser = data => {
+     const image = data.img[0];
+     const formData = new FormData();
+     formData.append('image', image);
+     const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imageHostKey}`;
+     fetch(url, {
+       method: 'POST',
+       body: formData,
+     })
+       .then(res => res.json())
+       .then(imageData => {
+         const image = imageData.data.url;
+         const updateData = {
+           name: data.name,
+           email: data.email,
+           role: data.role,
+           storeName: data.storeName,
+           phone: data.phone,
+           img: image,
+           date: formattedDate,
+         };
 
-  const createDBUser = data => {
-    const image = data.img[0];
-    const formData = new FormData();
-    formData.append('image', image);
-    const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imageHostKey}`;
-    fetch(url, {
-      method: 'POST',
-      body: formData,
-    })
-      .then(res => res.json())
-      .then(imageData => {
-        const image = imageData.data.url;
-        const updateData = {
-          name: data.name,
-          email: data.email,
-          role: data.role,
-          storeName: data.storeName,
-          phone: data.phone,
-          img: image,
-        };
-
-        console.log('aci', updateData);
-        fetch(`http://localhost:5000/create-user/${data?.email}`, {
-          method: 'PUT',
-          headers: {
-            'content-type': 'application/json',
-          },
-          body: JSON.stringify(updateData),
-        })
-          .then(res => res.json())
-          .then(data => {
-            navigate('/user-admin');
-            toast.success('Create profile');
-            reset();
-          });
-      });
-  };
+         console.log('aci', updateData);
+         fetch(`http://localhost:5000/create-user/${data?.email}`, {
+           method: 'PUT',
+           headers: {
+             'content-type': 'application/json',
+           },
+           body: JSON.stringify(updateData),
+         })
+           .then(res => res.json())
+           .then(data => {
+             navigate('/user-admin');
+             toast.success('Create profile');
+             reset();
+           });
+       });
+   };
 
   const onSubmit = data => {
     createUserWithEmailAndPassword(data.email, data.password);

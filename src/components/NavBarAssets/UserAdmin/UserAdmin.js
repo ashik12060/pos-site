@@ -1,31 +1,16 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function UserAdmin() {
+  const [users, setUser] = useState([]);
   const navigate = useNavigate();
 
-  const [users, setUsers] = useState([
-    {
-      id: 1,
-      storeName: "قمة البروج الأمنية",
-      userName: "Ove Ove",
-      mobile: "000",
-      email: "inspirefashion@gmail.com",
-      role: "Cashier",
-      createdOn: "29-07-2024",
-      status: "Active",
-    },
-    {
-      id: 2,
-      storeName: "قمة البروج الأمنية",
-      userName: "Salman Raphayel",
-      mobile: "9999999999",
-      email: "admin@example.com",
-      role: "Store Admin",
-      createdOn: "12-02-2021",
-      status: "Active",
-    },
-  ]);
+  useEffect(() => {
+    fetch(`http://localhost:5000/users`)
+      .then(res => res.json())
+      .then(data => setUser(data));
+  }, [users]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage] = useState(10);
@@ -34,21 +19,38 @@ function UserAdmin() {
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
   const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-  const handleAction = (actionType, entry) => {
-    switch (actionType) {
-      case "edit":
-        navigate(`/user/edit`);
-        break;
-      
-      case "delete":
-        alert(`Deleting entry with reference no: ${entry.referenceNo}`);
-        break;
-      default:
-        alert("Unknown action");
+  const paginate = pageNumber => setCurrentPage(pageNumber);
+  const handleDelete = id => {
+    const proceed = window.confirm('Are You Sure ?');
+    if (proceed) {
+      const url = `http://localhost:5000/user/${id}`;
+      fetch(url, {
+        method: 'DELETE',
+      })
+        .then(res => res.json())
+        .then(data => {
+          const remaining = users.filter(product => product._id !== id);
+          setUser(remaining);
+          toast.success('Successfully Delete');
+        });
     }
   };
+
+  const handleAction = (actionType, id) => {
+    switch (actionType) {
+      case 'edit':
+        navigate(`/user/edit`);
+        break;
+
+      case 'delete':
+        handleDelete(id);
+
+        break;
+      default:
+        alert('Unknown action');
+    }
+  };
+
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Users/Admin List</h1>
@@ -68,7 +70,10 @@ function UserAdmin() {
           </select>
           <span className="ml-2">entries</span>
         </div>
-        <Link to='/user/add' className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <Link
+          to="/user/add"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
           + New User
         </Link>
       </div>
@@ -106,19 +111,19 @@ function UserAdmin() {
             </tr>
           </thead>
           <tbody>
-            {currentUsers.map((user) => (
+            {currentUsers.map((user, index) => (
               <tr key={user.id}>
                 <td className="px-4 py-2 border-b border-gray-300 text-sm">
-                  {user.id}
+                  {index + 1}
                 </td>
                 <td className="px-4 py-2 border-b border-gray-300 text-sm">
                   {user.storeName}
                 </td>
                 <td className="px-4 py-2 border-b border-gray-300 text-sm">
-                  {user.userName}
+                  {user.name}
                 </td>
                 <td className="px-4 py-2 border-b border-gray-300 text-sm">
-                  {user.mobile}
+                  {user.phone}
                 </td>
                 <td className="px-4 py-2 border-b border-gray-300 text-sm">
                   {user.email}
@@ -127,29 +132,39 @@ function UserAdmin() {
                   {user.role}
                 </td>
                 <td className="px-4 py-2 border-b border-gray-300 text-sm">
-                  {user.createdOn}
+                  {user.date}
                 </td>
                 <td className="px-4 py-2 border-b border-gray-300 text-sm">
                   <span
+                    className={`inline-block px-2 py-1 rounded-full text-xs font-medium bg-green-200 text-green-70
+                    }`}
+                  >
+                    Active
+                  </span>
+                  {/* <span
                     className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${
-                      user.status === "Active"
-                        ? "bg-green-200 text-green-700"
-                        : "bg-red-200 text-red-700"
+                      user.status === 'Active'
+                        ? 'bg-green-200 text-green-700'
+                        : 'bg-red-200 text-red-700'
                     }`}
                   >
                     {user.status}
-                  </span>
+                  </span> */}
                 </td>
-               
 
                 <td className="px-4 py-2">
                   <select
                     className="bg-blue-500 text-white font-bold py-1 px-2 rounded w-30"
-                    onChange={(e) => handleAction(e.target.value)}
+                    onChange={e => handleAction(e.target.value, user._id)}
                   >
                     <option value="">Action</option>
                     <option value="edit">Edit</option>
-                    <option value="delete">Delete</option>
+                    <option
+                      // onClick={() => handleDelete(user._id)}
+                      value="delete"
+                    >
+                      Delete{' '}
+                    </option>
                   </select>
                 </td>
               </tr>
