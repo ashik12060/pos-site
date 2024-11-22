@@ -32,7 +32,6 @@ function StockAdjustmentAdd() {
       .then(data => {
         toast.success('Update Stock');
       });
-    console.log(stockUpdate);
   };
 
   return (

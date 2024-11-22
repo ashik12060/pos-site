@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 
 function AddExpenses() {
   const [expenseDate, setExpenseDate] = useState('');
@@ -10,9 +11,9 @@ function AddExpenses() {
   const [amount, setAmount] = useState('');
   const [note, setNote] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
-    console.log('Expense submitted:', {
+    const updateData = {
       expenseDate,
       referenceNo,
       category,
@@ -21,7 +22,18 @@ function AddExpenses() {
       account,
       amount,
       note,
-    });
+    };
+    fetch(`http://localhost:5000/expense`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(updateData),
+    })
+      .then(res => res.json())
+      .then(data => {
+        toast.success('Add Expense');
+      });
   };
 
   return (
@@ -30,7 +42,10 @@ function AddExpenses() {
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label htmlFor="expenseDate" className="block text-gray-700 font-medium mb-2">
+            <label
+              htmlFor="expenseDate"
+              className="block text-gray-700 font-medium mb-2"
+            >
               Expense Date *
             </label>
             <input
@@ -38,11 +53,14 @@ function AddExpenses() {
               id="expenseDate"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               value={expenseDate}
-              onChange={(e) => setExpenseDate(e.target.value)}
+              onChange={e => setExpenseDate(e.target.value)}
             />
           </div>
           <div>
-            <label htmlFor="referenceNo" className="block text-gray-700 font-medium mb-2">
+            <label
+              htmlFor="referenceNo"
+              className="block text-gray-700 font-medium mb-2"
+            >
               Reference No.
             </label>
             <input
@@ -50,36 +68,45 @@ function AddExpenses() {
               id="referenceNo"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               value={referenceNo}
-              onChange={(e) => setReferenceNo(e.target.value)}
+              onChange={e => setReferenceNo(e.target.value)}
             />
           </div>
           <div>
-            <label htmlFor="category" className="block text-gray-700 font-medium mb-2">
+            <label
+              htmlFor="category"
+              className="block text-gray-700 font-medium mb-2"
+            >
               Category *
             </label>
             <select
               id="category"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               value={category}
-              onChange={(e) => setCategory(e.target.value)}
+              onChange={e => setCategory(e.target.value)}
             >
               <option value="">Select Category</option>
               <option value="Ads">Ads</option>
             </select>
           </div>
           <div>
-            <label htmlFor="note" className="block text-gray-700 font-medium mb-2">
+            <label
+              htmlFor="note"
+              className="block text-gray-700 font-medium mb-2"
+            >
               Note
             </label>
             <textarea
               id="note"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               value={note}
-              onChange={(e) => setNote(e.target.value)}
+              onChange={e => setNote(e.target.value)}
             />
           </div>
           <div>
-            <label htmlFor="expenseFor" className="block text-gray-700 font-medium mb-2">
+            <label
+              htmlFor="expenseFor"
+              className="block text-gray-700 font-medium mb-2"
+            >
               Expense for *
             </label>
             <input
@@ -87,39 +114,48 @@ function AddExpenses() {
               id="expenseFor"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               value={expenseFor}
-              onChange={(e) => setExpenseFor(e.target.value)}
+              onChange={e => setExpenseFor(e.target.value)}
             />
           </div>
           <div>
-            <label htmlFor="paymentType" className="block text-gray-700 font-medium mb-2">
+            <label
+              htmlFor="paymentType"
+              className="block text-gray-700 font-medium mb-2"
+            >
               Payment Type *
             </label>
             <select
               id="paymentType"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               value={paymentType}
-              onChange={(e) => setPaymentType(e.target.value)}
+              onChange={e => setPaymentType(e.target.value)}
             >
               <option value="">Select Payment Type</option>
               <option value="CASH">CASH</option>
             </select>
           </div>
           <div>
-            <label htmlFor="account" className="block text-gray-700 font-medium mb-2">
+            <label
+              htmlFor="account"
+              className="block text-gray-700 font-medium mb-2"
+            >
               Account
             </label>
             <select
               id="account"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               value={account}
-              onChange={(e) => setAccount(e.target.value)}
+              onChange={e => setAccount(e.target.value)}
             >
               <option value="">Select Account</option>
               <option value="-None-">-None-</option>
             </select>
           </div>
           <div>
-            <label htmlFor="amount" className="block text-gray-700 font-medium mb-2">
+            <label
+              htmlFor="amount"
+              className="block text-gray-700 font-medium mb-2"
+            >
               Amount *
             </label>
             <input
@@ -127,7 +163,7 @@ function AddExpenses() {
               id="amount"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               value={amount}
-              onChange={(e) => setAmount(e.target.value)}
+              onChange={e => setAmount(e.target.value)}
             />
           </div>
         </div>

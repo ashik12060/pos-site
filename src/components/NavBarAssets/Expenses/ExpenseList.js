@@ -1,47 +1,55 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-const expenses = [
-  {
-    date: "26-05-2024",
-    category: "Mele Tang Road",
-    referenceNo: "",
-    expenseFor: "Lunch Cost",
-    amount: 1200.0,
-    account: "",
-    note: "",
-    createdBy: "Salman",
-  },
-  {
-    date: "15-05-2024",
-    category: "Ads",
-    referenceNo: "",
-    expenseFor: "bill",
-    amount: 200.0,
-    account: "",
-    note: "",
-    createdBy: "Shanto",
-  },
-  {
-    date: "26-04-2024",
-    category: "Ads",
-    referenceNo: "",
-    expenseFor: "Ads",
-    amount: 353.0,
-    account: "Bkash",
-    note: "",
-    createdBy: "Chris",
-  },
-];
+// const expenses = [
+//   {
+//     date: "26-05-2024",
+//     category: "Mele Tang Road",
+//     referenceNo: "",
+//     expenseFor: "Lunch Cost",
+//     amount: 1200.0,
+//     account: "",
+//     note: "",
+//     createdBy: "Salman",
+//   },
+//   {
+//     date: "15-05-2024",
+//     category: "Ads",
+//     referenceNo: "",
+//     expenseFor: "bill",
+//     amount: 200.0,
+//     account: "",
+//     note: "",
+//     createdBy: "Shanto",
+//   },
+//   {
+//     date: "26-04-2024",
+//     category: "Ads",
+//     referenceNo: "",
+//     expenseFor: "Ads",
+//     amount: 353.0,
+//     account: "Bkash",
+//     note: "",
+//     createdBy: "Chris",
+//   },
+// ];
 
 const ExpenseList = () => {
+  const [expenses, setExpenses] = useState([]);
   const [entriesPerPage, setEntriesPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
   const [entries, setEntries] = useState([]);
   const navigate = useNavigate();
 
-  const filteredEntries = entries.filter((entry) =>
+  useEffect(() => {
+    fetch(`http://localhost:5000/expense`)
+      .then(res => res.json())
+      .then(data => setExpenses(data));
+  }, [expenses]);
+
+  const filteredEntries = entries.filter(entry =>
     entry.adjustmentDate.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -52,17 +60,29 @@ const ExpenseList = () => {
     indexOfLastEntry
   );
 
-  const handleAction = (actionType, entry) => {
+  const handleAction = (actionType, entry, id) => {
     switch (actionType) {
-      case "edit":
+      case 'edit':
         navigate(`/expense-list/update`);
         break;
-      
-      case "delete":
-        alert(`Deleting entry with reference no: ${entry.referenceNo}`);
+
+      case 'delete':
+        const proceed = window.confirm('Are You Sure ?');
+        if (proceed) {
+          const url = `http://localhost:5000/expenseDelete/${id}`;
+          fetch(url, {
+            method: 'DELETE',
+          })
+            .then(res => res.json())
+            .then(data => {
+              const remaining = expenses.filter(product => product._id !== id);
+              setExpenses(remaining);
+              toast.success('Successfully Delete ');
+            });
+        }
         break;
       default:
-        alert("Unknown action");
+        alert('Unknown action');
     }
   };
 
@@ -130,25 +150,25 @@ const ExpenseList = () => {
           <tbody>
             {expenses.map((expense, index) => (
               <tr key={index} className="border-b">
-                <td className="px-4 py-2">{expense.date}</td>
-                <td className="px-4 py-2">{expense.category}</td>
-                <td className="px-4 py-2">{expense.referenceNo}</td>
-                <td className="px-4 py-2">{expense.expenseFor}</td>
-                <td className="px-4 py-2">{expense.amount.toFixed(2)}</td>
-                <td className="px-4 py-2">{expense.account}</td>
-                <td className="px-4 py-2">{expense.note}</td>
-                <td className="px-4 py-2">{expense.createdBy}</td>
+                <td className="px-4 py-2">{expense?.expenseDate}</td>
+                <td className="px-4 py-2">{expense?.category}</td>
+                <td className="px-4 py-2">{expense?.referenceNo}</td>
+                <td className="px-4 py-2">{expense?.expenseFor}</td>
+                {/* <td className="px-4 py-2">{expense.amount.toFixed(2)}</td> */}
+                <td className="px-4 py-2">{expense?.amount}</td>
+                <td className="px-4 py-2">{expense?.account}</td>
+                <td className="px-4 py-2">{expense?.note}</td>
+                <td className="px-4 py-2">Nahid</td>
                 <td className="px-4 py-2">
                   <select
                     className="bg-blue-500 text-white font-bold py-1 px-2 rounded w-30"
-                    onChange={(e) => handleAction(e.target.value)}
+                    onChange={e => handleAction(e.target.value, expense?._id)}
                   >
                     <option value="">Action</option>
                     <option value="edit">Edit</option>
                     <option value="delete">Delete</option>
                   </select>
                 </td>
-                
               </tr>
             ))}
             <tr className="bg-gray-100">
@@ -156,9 +176,9 @@ const ExpenseList = () => {
                 Total
               </td>
               <td className="px-4 py-2 font-semibold">
-                {expenses
-                  .reduce((total, expense) => total + expense.amount, 0)
-                  .toFixed(2)}
+                {/* {expenses
+                  .reduce((total, expense) => total + expense?.amount, 0)
+                  .toFixed(2)} */}
               </td>
               <td colSpan="4"></td>
             </tr>
